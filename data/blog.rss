@@ -1,0 +1,827 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>arun.chaganty</title>
+	<atom:link href="http://arun.chagantys.org/blog/?feed=rss2" rel="self" type="application/rss+xml" />
+	<link>http://arun.chagantys.org/blog</link>
+	<description>Overengineering since 1989</description>
+	<lastBuildDate>Sun, 04 Apr 2010 01:19:17 +0000</lastBuildDate>
+	<generator>http://wordpress.org/?v=2.9.2</generator>
+	<language>en</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+			<item>
+		<title>Dynamic Shortcut Creation with Bash</title>
+		<link>http://arun.chagantys.org/blog/?p=293</link>
+		<comments>http://arun.chagantys.org/blog/?p=293#comments</comments>
+		<pubDate>Sun, 04 Apr 2010 01:05:50 +0000</pubDate>
+		<dc:creator>Arun Tejasvi Chaganty</dc:creator>
+				<category><![CDATA[technical]]></category>
+		<category><![CDATA[bash]]></category>
+		<category><![CDATA[organisation]]></category>
+		<category><![CDATA[quickfix]]></category>
+		<category><![CDATA[script]]></category>
+
+		<guid isPermaLink="false">http://arun.chagantys.org/blog/?p=293</guid>
+		<description><![CDATA[
+One of the things that used to get me really frustrated was having to type (and remember) really long paths to my organised data. If I have an assignment in some course of mine, I have to navigate to &#8220;~/Courses/code/cs6680/assn1/&#8221; before I get any work done. From what I hear, this is a pretty common [...]]]></description>
+			<content:encoded><![CDATA[<p>
+One of the things that used to get me really frustrated was having to type (and remember) really long paths to my organised data. If I have an assignment in some course of mine, I have to navigate to &#8220;~/Courses/code/cs6680/assn1/&#8221; before I get any work done. From what I hear, this is a pretty common crib that a lot of others also share. Here&#8217;s my solution (<a href="http://arun.chagantys.org/files/scripts/shortcut">download</a>).
+</p>
+<p><div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;height:300px;"><table cellspacing="0" cellpadding="0"><tbody><tr><td style="padding:5px;text-align:center;color:#888888;background-color:#EEEEEE;border-right: 1px solid #9F9F9F;font: normal 12px/1.4em Monaco, Lucida Console, monospace;"><div>1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20<br />21<br />22<br />23<br />24<br />25<br />26<br />27<br />28<br />29<br />30<br />31<br />32<br />33<br />34<br />35<br />36<br />37<br />38<br /></div></td><td><div class="bash codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #666666; font-style: italic;">#!/bin/bash</span><br />
+<br />
+<span style="color: #666666; font-style: italic;"># Shortcut Creation</span><br />
+<span style="color: #007800;">LINKDIR</span>=~<span style="color: #000000; font-weight: bold;">/</span>.shells<span style="color: #000000; font-weight: bold;">/</span>links<br />
+<br />
+<span style="color: #000000; font-weight: bold;">if</span> <span style="color: #7a0874; font-weight: bold;">&#91;</span><span style="color: #7a0874; font-weight: bold;">&#91;</span> <span style="color: #000000; font-weight: bold;">!</span> <span style="color: #660033;">-e</span> <span style="color: #007800;">$LINKDIR</span> <span style="color: #7a0874; font-weight: bold;">&#93;</span><span style="color: #7a0874; font-weight: bold;">&#93;</span>; <span style="color: #000000; font-weight: bold;">then</span><br />
+&nbsp; &nbsp; <span style="color: #c20cb9; font-weight: bold;">mkdir</span> <span style="color: #660033;">-p</span> <span style="color: #007800;">$LINKDIR</span>;<br />
+<span style="color: #000000; font-weight: bold;">fi</span><br />
+<br />
+<span style="color: #000000; font-weight: bold;">if</span> <span style="color: #7a0874; font-weight: bold;">&#91;</span><span style="color: #7a0874; font-weight: bold;">&#91;</span> <span style="color: #007800;">$1</span> == <span style="color: #ff0000;">&quot;-c&quot;</span> <span style="color: #000000; font-weight: bold;">&amp;&amp;</span> <span style="color: #007800;">$#</span> == <span style="color: #000000;">3</span> <span style="color: #7a0874; font-weight: bold;">&#93;</span><span style="color: #7a0874; font-weight: bold;">&#93;</span>; <span style="color: #000000; font-weight: bold;">then</span><br />
+&nbsp; &nbsp; <span style="color: #007800;">linkname</span>=<span style="color: #007800;">$2</span>;<br />
+&nbsp; &nbsp; <span style="color: #007800;">path</span>=<span style="color: #007800;">$3</span>;<br />
+&nbsp; &nbsp; <span style="color: #666666; font-style: italic;"># Check if exists</span><br />
+&nbsp; &nbsp; <span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #ff0000;">&quot;<span style="color: #007800;">$path</span>&quot;</span> <span style="color: #000000; font-weight: bold;">&gt;</span> <span style="color: #ff0000;">&quot;<span style="color: #007800;">$LINKDIR</span>/<span style="color: #007800;">$linkname</span>&quot;</span>;<br />
+&nbsp; &nbsp; <span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #ff0000;">&quot;Link: <span style="color: #007800;">$linkname</span> created&quot;</span>;<br />
+<span style="color: #000000; font-weight: bold;">elif</span> <span style="color: #7a0874; font-weight: bold;">&#91;</span><span style="color: #7a0874; font-weight: bold;">&#91;</span> <span style="color: #007800;">$1</span> == <span style="color: #ff0000;">&quot;-r&quot;</span> <span style="color: #000000; font-weight: bold;">&amp;&amp;</span> <span style="color: #007800;">$#</span> == <span style="color: #000000;">2</span> <span style="color: #7a0874; font-weight: bold;">&#93;</span><span style="color: #7a0874; font-weight: bold;">&#93;</span>; <span style="color: #000000; font-weight: bold;">then</span><br />
+&nbsp; &nbsp; <span style="color: #007800;">linkname</span>=<span style="color: #007800;">$2</span>;<br />
+&nbsp; &nbsp; <span style="color: #666666; font-style: italic;"># Check if exists</span><br />
+&nbsp; &nbsp; <span style="color: #c20cb9; font-weight: bold;">rm</span> <span style="color: #660033;">-rf</span> <span style="color: #ff0000;">&quot;<span style="color: #007800;">$LINKDIR</span>/<span style="color: #007800;">$linkname</span>&quot;</span>;<br />
+&nbsp; &nbsp; <span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #ff0000;">&quot;Link: <span style="color: #007800;">$linkname</span> deleted&quot;</span>;<br />
+<span style="color: #000000; font-weight: bold;">elif</span> <span style="color: #7a0874; font-weight: bold;">&#91;</span><span style="color: #7a0874; font-weight: bold;">&#91;</span> <span style="color: #007800;">$1</span> == <span style="color: #ff0000;">&quot;-l&quot;</span> <span style="color: #000000; font-weight: bold;">&amp;&amp;</span> <span style="color: #007800;">$#</span> == <span style="color: #000000;">1</span> <span style="color: #7a0874; font-weight: bold;">&#93;</span><span style="color: #7a0874; font-weight: bold;">&#93;</span>; <span style="color: #000000; font-weight: bold;">then</span><br />
+&nbsp; &nbsp; <span style="color: #000000; font-weight: bold;">for</span> <span style="color: #c20cb9; font-weight: bold;">link</span> <span style="color: #000000; font-weight: bold;">in</span> <span style="color: #007800;">$LINKDIR</span><span style="color: #000000; font-weight: bold;">/*</span>; <span style="color: #000000; font-weight: bold;">do</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #ff0000;">&quot;<span style="color: #780078;">`basename $link`</span> -&gt; <span style="color: #780078;">`cat $link`</span>&quot;</span>;<br />
+&nbsp; &nbsp; <span style="color: #000000; font-weight: bold;">done</span>;<br />
+<span style="color: #000000; font-weight: bold;">elif</span> <span style="color: #7a0874; font-weight: bold;">&#91;</span><span style="color: #7a0874; font-weight: bold;">&#91;</span> <span style="color: #007800;">$#</span> == <span style="color: #000000;">1</span> <span style="color: #7a0874; font-weight: bold;">&#93;</span><span style="color: #7a0874; font-weight: bold;">&#93;</span>; <span style="color: #000000; font-weight: bold;">then</span><br />
+&nbsp; &nbsp; <span style="color: #007800;">linkname</span>=<span style="color: #007800;">$1</span>;<br />
+&nbsp; &nbsp; <span style="color: #000000; font-weight: bold;">if</span> <span style="color: #7a0874; font-weight: bold;">&#91;</span> <span style="color: #660033;">-e</span> <span style="color: #ff0000;">&quot;<span style="color: #007800;">$LINKDIR</span>/<span style="color: #007800;">$linkname</span>&quot;</span> <span style="color: #7a0874; font-weight: bold;">&#93;</span>; <span style="color: #000000; font-weight: bold;">then</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7a0874; font-weight: bold;">cd</span> <span style="color: #000000; font-weight: bold;">`</span><span style="color: #c20cb9; font-weight: bold;">cat</span> <span style="color: #007800;">$LINKDIR</span><span style="color: #000000; font-weight: bold;">/</span><span style="color: #007800;">$linkname</span><span style="color: #000000; font-weight: bold;">`</span>;<br />
+&nbsp; &nbsp; <span style="color: #000000; font-weight: bold;">else</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #ff0000;">&quot;Link: <span style="color: #007800;">$linkname</span> does not exist&quot;</span>;<br />
+&nbsp; &nbsp; <span style="color: #000000; font-weight: bold;">fi</span><br />
+<span style="color: #000000; font-weight: bold;">else</span><br />
+&nbsp; &nbsp; <span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #ff0000;">&quot;Usage: $0 -c &lt;linkname&gt; &lt;path&gt;&quot;</span>;<br />
+&nbsp; &nbsp; <span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #ff0000;">&quot; &nbsp; &nbsp; &nbsp; $0 -r &lt;linkname&gt;&quot;</span>;<br />
+&nbsp; &nbsp; <span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #ff0000;">&quot; &nbsp; &nbsp; &nbsp; $0 -l&quot;</span>;<br />
+&nbsp; &nbsp; <span style="color: #7a0874; font-weight: bold;">echo</span> <span style="color: #ff0000;">&quot; &nbsp; &nbsp; &nbsp; . $0 &lt;linkname&gt;&quot;</span>;<br />
+&nbsp; &nbsp; <span style="color: #7a0874; font-weight: bold;">exit</span> <span style="color: #000000;">1</span>;<br />
+<span style="color: #000000; font-weight: bold;">fi</span></div></td></tr></tbody></table></div>
+</p>
+<p>
+Usage is pretty simple, but has one caveat &#8211; to go to a link, you have to <i>source the script file</i> (from what I gather, that&#8217;s the only way to change the current directory by the means of a script. I hope this useful.</p>
+<div class="codecolorer-container text default" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><table cellspacing="0" cellpadding="0"><tbody><tr><td style="padding:5px;text-align:center;color:#888888;background-color:#EEEEEE;border-right: 1px solid #9F9F9F;font: normal 12px/1.4em Monaco, Lucida Console, monospace;"><div>1<br />2<br />3<br />4<br />5<br /></div></td><td><div class="text codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">$&gt; shortcut -c &quot;dm3&quot; $PWD;<br />
+$&gt; shortcut -l;<br />
+&nbsp; &nbsp;dm3 -&gt; /home/teju/Courses/cs6720/assn3/ <br />
+$&gt; . shortcut &quot;dm3&quot;;<br />
+$&gt; shortcut -r &quot;dm3&quot;;</div></td></tr></tbody></table></div>
+</p>
+<p>
+A very brief explanation of the code &#8211; it creates a file for every link you create, and the file contains the path. Note it might be interesting to add more functionality to that file, like a set of scripts to run on entering the directory, or something like that.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://arun.chagantys.org/blog/?feed=rss2&amp;p=293</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+		<item>
+		<title>Disqus and Ideas</title>
+		<link>http://arun.chagantys.org/blog/?p=287</link>
+		<comments>http://arun.chagantys.org/blog/?p=287#comments</comments>
+		<pubDate>Fri, 02 Apr 2010 00:15:48 +0000</pubDate>
+		<dc:creator>Arun Tejasvi Chaganty</dc:creator>
+				<category><![CDATA[general]]></category>
+		<category><![CDATA[news]]></category>
+		<category><![CDATA[disqus]]></category>
+		<category><![CDATA[ideas]]></category>
+		<category><![CDATA[notice]]></category>
+
+		<guid isPermaLink="false">http://arun.chagantys.org/blog/?p=287</guid>
+		<description><![CDATA[
+So I&#8217;ve moved the site over to using the Disqus Commenting System, which is most fabulous. For some reason the system is still hasn&#8217;t imported my existing comments, so I&#8217;m not sure what&#8217;s happening there. Otherwise, the real reason for the shift, is that I wanted to put up some ideas I had regarding some [...]]]></description>
+			<content:encoded><![CDATA[<p>
+So I&#8217;ve moved the site over to using the <a href="http://disqus.com/">Disqus Commenting System</a>, which is most fabulous. For some reason the system is still hasn&#8217;t imported my existing comments, so I&#8217;m not sure what&#8217;s happening there. Otherwise, the real reason for the shift, is that I wanted to <a href="http://arun.chagantys.org/ideas/">put up some ideas</a> I had regarding some research topics up for discussion. I&#8217;d much prefer if those were handled via text files which I can modify with ease locally &#8211; but I still need to handle comments. Go Disqus!
+</p>
+<p>
+And yeah, thanks to Vimal both for Disqus and for inspiring me to put my ideas up online for open discussion.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://arun.chagantys.org/blog/?feed=rss2&amp;p=287</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+		<item>
+		<title>Not All Those Who Wander Are Lost&#8230; But Some Are</title>
+		<link>http://arun.chagantys.org/blog/?p=278</link>
+		<comments>http://arun.chagantys.org/blog/?p=278#comments</comments>
+		<pubDate>Thu, 01 Apr 2010 01:25:20 +0000</pubDate>
+		<dc:creator>Arun Tejasvi Chaganty</dc:creator>
+				<category><![CDATA[prose]]></category>
+		<category><![CDATA[abstract]]></category>
+		<category><![CDATA[story]]></category>
+
+		<guid isPermaLink="false">http://arun.chagantys.org/blog/?p=278</guid>
+		<description><![CDATA[
+Here is my 3rd place &#8220;winning&#8221; entry for Saarang Creative Writing (posting
+here just for the sake of it, and because something reminded me of the
+title). It&#8217;s a bit of an abstract piece, and admittedly a bit shabby here
+and there. Commentary shall follow at the end
+
+Not All Those Who Wander Are Lost&#8230; But Some Are
+
+&#8220;Have you [...]]]></description>
+			<content:encoded><![CDATA[<p>
+Here is my 3rd place &#8220;winning&#8221; entry for Saarang Creative Writing (posting<br />
+here just for the sake of it, and because something reminded me of the<br />
+title). It&#8217;s a bit of an abstract piece, and admittedly a bit shabby here<br />
+and there. Commentary shall follow at the end
+</p>
+<h2>Not All Those Who Wander Are Lost&#8230; But Some Are</h2>
+<p>
+&#8220;Have you heard about the murder case?&#8221;
+</p>
+<p>
+&#8220;Hmm&#8230; It seems like I have a particularly nasty homicide on my hands.<br />
+Particularly nasty indeed&#8230;&#8221;
+</p>
+<p>
+&#8220;What do you think about it, Father? You must know much about these things&#8230;&#8221;
+</p>
+<p>
+&#8220;I have to admit, this one&#8217;s got me scratching my head pretty bad alright.<br />
+Sure, the modus operandi seems rather straight forward; it&#8217;s like so many of<br />
+those hit-and-run cases. But I dare say, what&#8217;s the motive? I haven&#8217;t a clue<br />
+who to suspect. Sure, I have his prints, but there are fifty thousand men,<br />
+women and children in London today with prints just like his. Or hers, I should<br />
+say. And a good thousand of those will leave tomorrow, replaced by &#8217;round &#8217;bout<br />
+the same from all over.
+</p>
+<p>
+No, a person in my position needs far more to go on than prints. We need to put<br />
+our feet in that blasted man (or woman)&#8217;s shoes. That&#8217;s how we nab &#8216;em.&#8221;
+</p>
+<p>
+&#8220;I&#8217;ve always wondered what goes on in the minds of such men. Murderers. That<br />
+needs some thicker skin, some colder heart don&#8217;t you think?&#8221;
+</p>
+<p>
+&#8220;I&#8217;ve learnt about men I tell you. Homicides; they&#8217;re more about people then<br />
+you&#8217;d think. Sometimes I tell myself, &#8220;John, the reason you&#8217;ve done so fine<br />
+hasn&#8217;t much to do with your mind, son. It&#8217;s your heart.&#8221; People trust a<br />
+Reverend; far more than those ruffians in the Yard. Science and Religion, &#8217;tis<br />
+a heady mix if there ever was one. You&#8217;ll have the heart and minds of people at<br />
+the same time; trust me it&#8217;s worth a thousand times more than either alone.&#8221;
+</p>
+<p>
+&#8220;Hmm&#8230; A thicker skin. I don&#8217;t have one of those. Don&#8217;t you suppose one could<br />
+perhaps, kill a man out of&#8230; oh, just entirely by mistake? Haven&#8217;t there been<br />
+cases when a jolly &#8216;ol matte smacks his drinking partner hard on the back and<br />
+that causes the pour soul to chock and&#8230; and die? Is that &#8216;ol mate a criminal?<br />
+Who knows what circumstances cause other men to kill?&#8221;
+</p>
+<p>
+&#8220;Criminals, they come in all forms; different shapes, sizes, motives. Most<br />
+cases I hear are just out of anger, jealousy, some such mundane emotion. The<br />
+cases that really terrify you are ones caused by some innate wild<br />
+uncontrollable animalism. They terrify you because you know they just won&#8217;t<br />
+stop. Not till they&#8217;re dead. The others you can reform, hell most of the time<br />
+life in jail is better than what they have out here. Sometimes, well, most of<br />
+the time though, they&#8217;re easier to catch; the perpetrators are far too sloppy,<br />
+and frankly, stupid.
+</p>
+<p>
+There&#8217;s a final category of people, which I&#8217;m yet to come across. The<br />
+aristocratic psychopath. Cunning, intelligent, resourceful. He&#8217;ll do whatever<br />
+he wants to, and can throw his money around to get away with it. He&#8217;s smart<br />
+enough to make the case look like a complete accident; like this hit and run<br />
+case. You just never know whether what your looking at is a masquerade for some<br />
+greater scheme&#8230;&#8221;
+</p>
+<p>
+&#8220;Does everything happen for a reason? Do all men have purpose? Couldn&#8217;t one<br />
+man&#8217;s purpose, as it were, be to end another&#8217;s life? How would such a man feel?<br />
+That his Purpose was to end an man&#8217;s innings upon this world? I&#8217;d be pretty<br />
+angry to have to sign that contract with God. Surely something must happen just<br />
+by chance; devoid of reason, and hence of guilt?&#8221;
+</p>
+<p>
+&#8220;Nothing happens by coincidence. Not for me. Why, now, would Britain&#8217;s most<br />
+wanted, an adept criminal by all standards, one who&#8217;s been a greased pig for<br />
+every detective in the Queen&#8217;s country for over a year and a half now, be lying<br />
+drowned in a cask of some rather crass lager? In a black as night alley along<br />
+the River Thames? Under a broken street light? No exciting last chase as the<br />
+Yard slowly begins to corner him, no famous last words, no stunning<br />
+revelations. No dignity. One of the greatest criminals of this decade, and I<br />
+dear say this century, dead without any last tricks that fail by just a<br />
+whisker. And you expect me to believe this is not the art of some even greater<br />
+mastermind?&#8221;
+</p>
+<p>
+&#8220;Tell me Father, is it a crime to thieve from a thief? Oh, I know of &#8216;honour<br />
+among thieves&#8217;, but if I were not a thief? Well, I suppose it may depend on<br />
+what was stolen. And if it were something of as great a value as one&#8217;s lives?<br />
+Several lives even?&#8221;
+</p>
+<p>
+&#8220;No, I think not!&#8221;
+</p>
+<p>
+&#8220;Then would one be justified in the murder of such an individual? Surely the<br />
+police wouldn&#8217;t care much to find the murderer of a murder? Shouldn&#8217;t he be a<br />
+hero? Hmm&#8230; People always love a vigilante; though what the authorities think<br />
+is a whole new matter&#8230;&#8221;
+</p>
+<p>
+&#8220;As a detective, it&#8217;s my sworn duty to pursue the truth of the matter. Am I<br />
+glad the devil bastard is dead? Certainly; but to not follow up the case is yet<br />
+a greater folly. Who knows what the killer of the killer may be up to next. It<br />
+is more likely than no that this Mastermind is simply eliminating his pawns.<br />
+Hiding his pieces so we may never see the player behind them.&#8221;
+</p>
+<p>
+&#8220;I&#8217;m no criminal. I haven&#8217;t the thick skin, see, mine is as soft and supple as<br />
+that of a scholar&#8217;s laddie. And see my heart? As warm as the midday sun. I<br />
+couldn&#8217;t be capable of Murder of all things.&#8221;
+</p>
+<p>
+&#8220;Now, I can&#8217;t go about suspecting anyone. This is a tricky game, yes it is -<br />
+twists your mind it does. If this Mastermind is mastermind-ly enough, the<br />
+suspect won&#8217;t even know what he was doing. He could make it seem like a pure<br />
+coincidence. I dare say _you_ could be the criminal, and not know it. Would<br />
+that truly make you a criminal? I don&#8217;t know&#8221;
+</p>
+<p>
+&#8220;Just imagine, committing a crime you did not intend to commit. Imagin the<br />
+thought of having another man&#8217;s blood on your hands. How would you feel? Should<br />
+your life stand still, stop in it&#8217;s tracks? And it wasn&#8217;t even your concious<br />
+doing&#8230;&#8221;
+</p>
+<p>
+&#8220;No, I suppose not.&#8221;
+</p>
+<p>
+&#8220;But still, the unholiness of it. Wouldn&#8217;t you feel as if God had taken smite<br />
+on you? Wouldn&#8217;t you question yourself, put yourself through anguish, try to<br />
+find what sequence of mistakes had caused His retribution in such a form.<br />
+Surely, He would not condemn a man to murder were that man not condemned<br />
+already?&#8221;
+</p>
+<p>
+&#8220;This man, the Mastermind, he must be a truly remorseless chap. I may err in my<br />
+reasoning, but no women could be quite so heartless, to kill pawns with pawns,<br />
+so impersonally.&#8221;
+</p>
+<p>
+&#8220;Does the Lord have any mercy? This man here, has no great fortune, no wife or<br />
+children even. And you take away his only hold on reality, his values and faith<br />
+in you?!&#8221;
+</p>
+<p>
+&#8220;An aristocrat. A scholar. One of the two he must be. Oh, manipulation of men<br />
+and their thoughts is inbred in them. I am certain of it. What could such men<br />
+want from the world? Wealth and power they have already. Women, well, women<br />
+can&#8217;t be got this way&#8230;&#8221;
+</p>
+<p>
+&#8220;Goddammit, I&#8217;m just a boy. Driving my cart, doing my father&#8217;s chores. I<br />
+didn&#8217;t indent to roll off the curb and hit that man. Get my cart jammed in<br />
+there like that. I tried getting him free. God didn&#8217;t even bless me with the<br />
+strength to save him. It&#8217;s not my fault!&#8221;
+</p>
+<p>
+&#8220;I should start by checking reports of all the lord&#8217;s in this area. This is not<br />
+going to be easy, no. Wish me luck, &#8216;ol chaps, I&#8217;ll need all there is to solve<br />
+this case&#8221;
+</p>
+<p>
+&#8220;Sigh&#8230; Forgive me Father for I have sinned&#8230;&#8221;
+</p>
+<p>
+So a couple of points that I really like about writing the story:</p>
+<ul>
+<li>
+It was entirely in dialogues, that too between two characters in completely<br />
+separated physical locations. That meant I could be inconsistent, and didn&#8217;t<br />
+need to focus on my language, as long as I kept a consistent tone. And it was<br />
+fun sketching out characters entirely by their words, and trying to make their<br />
+dialogues roughly match each other.
+</li>
+<li>
+This was one of the few times I&#8217;ve had to <i>write</i> a story, by hand. I generally think of the story either non-linearly or hierarchically, thus writing out bits and pieces and joining them together. I blame lots of the inconsistencies in the story on it (of course, it couldn&#8217;t be <i>my</i> fault otherwise).
+</li>
+<li>
+I threw in 5-6 themes of the &#8220;suggested&#8221; list (things like the title, the &#8220;setting&#8221;, etc.)
+</li>
+<li>
+I had initially planned to make it something along the lines of the dialogues<br />
+in Crime and Punishment (Fydor Dosteovsky), where the criminal describes<br />
+exactly what he&#8217;d done to the detective, but because it was a murder of chance,<br />
+and rather unconventional, for most part of the story the detective is utterly<br />
+clueless. Somewhere along the way, I decided to separate the two physically.<br />
+Atleast initially I had planned for the to-fro dialogues to be roughly<br />
+coherent, but for some reason, I decided towards the end to skew them apart as<br />
+much as possible to highlight the irony of the situation, and also to be able<br />
+to raise to pace to a climax.
+</li>
+<li>
+To be honest, it sounded a lot more coherent and &#8220;cool&#8221; when I was writing it. I swear.
+</li>
+</ul>
+<p><b>Edit:</b> Corrected some spelling errors pointed out by Suresh Govindarajan. Also added a point to the commentary</p>
+]]></content:encoded>
+			<wfw:commentRss>http://arun.chagantys.org/blog/?feed=rss2&amp;p=278</wfw:commentRss>
+		<slash:comments>0</slash:comments>
+		</item>
+		<item>
+		<title>Theme Change!</title>
+		<link>http://arun.chagantys.org/blog/?p=275</link>
+		<comments>http://arun.chagantys.org/blog/?p=275#comments</comments>
+		<pubDate>Mon, 29 Mar 2010 22:50:03 +0000</pubDate>
+		<dc:creator>Arun Tejasvi Chaganty</dc:creator>
+				<category><![CDATA[general]]></category>
+		<category><![CDATA[news]]></category>
+		<category><![CDATA[meta-post]]></category>
+		<category><![CDATA[random]]></category>
+
+		<guid isPermaLink="false">http://arun.chagantys.org/blog/?p=275</guid>
+		<description><![CDATA[
+Ah, after an endless lull in content, I have gone down the time tested route of all phased-out bloggers; I&#8217;ve changed my theme. I think as I&#8217;ve grown &#8220;older&#8221;, my aesthetics demand more and more simplicity, to the point that non-centered, non-black-and-white, non-plain text themes just turn me off. I liked my old theme quite [...]]]></description>
+			<content:encoded><![CDATA[<p>
+Ah, after an endless lull in content, I have gone down the time tested route of all phased-out bloggers; I&#8217;ve changed my theme. I think as I&#8217;ve grown &#8220;older&#8221;, my aesthetics demand more and more simplicity, to the point that non-centered, non-black-and-white, non-plain text themes just turn me off. I liked my old theme quite a bit, honestly, but I guess I just outgrew it.
+</p>
+<p>
+I would also like to shout-out extreme gratitude to the designers of the <a href="http://www.plaintxt.org/themes/simplr/">Simplr</a> theme, which, with a few minor modifications, fits with my main page theme quite well. Woo. Also, a shout out to <a href="http://www.favicon.cc/">favicon.cc</a> for a CC-licensed favicon that I modified on the site itself.
+</p>
+<p>
+Oh yeah, and about the content, I&#8217;ve been dry as a desert lately because of a) lots of work, b) a lack of need to express myself, and c) insufficient E<sub>a</sub>. However, I have a couple of random thoughts and introspections, apart from technical experiences that I expect to jot down here soon. And research-ish ideas (which shall see public discussion thanks to Vimal).</p>
+]]></content:encoded>
+			<wfw:commentRss>http://arun.chagantys.org/blog/?feed=rss2&amp;p=275</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+		<item>
+		<title>foss.in/2009</title>
+		<link>http://arun.chagantys.org/blog/?p=267</link>
+		<comments>http://arun.chagantys.org/blog/?p=267#comments</comments>
+		<pubDate>Wed, 30 Dec 2009 08:38:49 +0000</pubDate>
+		<dc:creator>Arun Tejasvi Chaganty</dc:creator>
+				<category><![CDATA[general]]></category>
+		<category><![CDATA[events]]></category>
+		<category><![CDATA[foss.in]]></category>
+
+		<guid isPermaLink="false">http://arun.chagantys.org/blog/?p=267</guid>
+		<description><![CDATA[
+    foss.in/2009. Nimhans Convention Center, Bangalore, Dec. 1-5, 2009. Yep, a month ago (well, atleast it&#8217;s better than a year ago). I attended my first foss.in in 2007, and it seriously changed my life. I can&#8217;t say quite the same for this edition, but it was interesting.
+
+
+The overwhelming focus of this year&#8217;s [...]]]></description>
+			<content:encoded><![CDATA[<p>
+    foss.in/2009. Nimhans Convention Center, Bangalore, Dec. 1-5, 2009. Yep, a month ago (well, atleast it&#8217;s better than a year ago). I attended my first foss.in in 2007, and it seriously changed my life. I can&#8217;t say quite the same for this edition, but it was interesting.
+</p>
+<p>
+The overwhelming focus of this year&#8217;s foss.in was open hardware &#8211; something I&#8217;m really close to. The <i>best</i> talk I attended without a doubt goes to Harald Welte; he spoke on how people (including himself) had reverse engineered RFIDs, and remarkably GSM, and exposed how flawed it was. Harald has this near holy modesty about him, but good god does he know his stuff. Seriously, Harald ist Gott.
+</p>
+<p>
+    Now, the other set of great talks were given by the anti-thesis of modesty, Lennart Poettering (who ist also Gott) (who I&#8217;ve venture to call RKK&#8217;s protege). He ripped apart any &#8220;assumptions&#8221; you could possibly have about filesystems, S.M.A.R.T., operating systems, hell anything. General theme (as always) was &#8220;Everything sucks, and here&#8217;s why.&#8221;
+</p>
+<p>
+    Coming to hacking, I must say, GNOME day was a bit of a disappointment. The &#8220;focus&#8221; this year was GNOME performance again. Some interesting work was done using dtrace on Solaris (now that I&#8217;ve seen the tool, I have to admit it <i>is</i> awesome). I sadly didn&#8217;t see much cohesion, nor any direction with the GNOME community, which kinda irked me. Personally, I spent the better part of 3 days profiling, checking out applications that needed performance updates, etc. I did find a performance bottleneck with GTK, but it had already been fixed (of course it took me the better part of a day to get the latest version of the sources to verify this&#8230;). I also gave a ad-hoc talk about jhbuild and getting &#8220;bleeding edge GNOME&#8221;, which I think I utterly mucked up, and would like to forget about. Only patch I submitted was one a trivial one to jhbuild. In other words, foss.in/2009 was epic fail for me.</p>
+<p>
+   On the other hand, the KDE community was awesome &#8211; they had a <i>tight</i> show running, and managed to guide quite a few people into development, and I&#8217;m pretty sure a few of which will stay. I bow to Pradeepto, and Akarsh.
+</p>
+<p>
+    On a concluding note, I&#8217;m currently having quite mixed feelings with my role in FOSS &#8211; I&#8217;m certainly not &#8220;contributing&#8221; anything significant, and I don&#8217;t feel much of that community goodness. I think I&#8217;m going to probably stick with just opening all my work. It seems rather ironic that my first foss.in had pulled me into FOSS, and now my second (perhaps last?) foss.in marks the end of that period.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://arun.chagantys.org/blog/?feed=rss2&amp;p=267</wfw:commentRss>
+		<slash:comments>1</slash:comments>
+		</item>
+		<item>
+		<title>Excursions in Programming &#8211; Generators</title>
+		<link>http://arun.chagantys.org/blog/?p=258</link>
+		<comments>http://arun.chagantys.org/blog/?p=258#comments</comments>
+		<pubDate>Thu, 12 Nov 2009 13:06:23 +0000</pubDate>
+		<dc:creator>Arun Tejasvi Chaganty</dc:creator>
+				<category><![CDATA[technical]]></category>
+		<category><![CDATA[c++]]></category>
+		<category><![CDATA[generators]]></category>
+		<category><![CDATA[programming]]></category>
+		<category><![CDATA[python]]></category>
+
+		<guid isPermaLink="false">http://arun.chagantys.org/blog/?p=258</guid>
+		<description><![CDATA[&#8220;Lazy computation kicks the llama&#8217;s ass&#8221; &#8211; Somebody
+
+The concept of a generator may be very foreign to those who haven&#8217;t really explored Python &#8211; though it is a general principle (like iterators). The crux of it is to generate the members of a set/relation one at time (which are subsequently returned). If you are not [...]]]></description>
+			<content:encoded><![CDATA[<p><i>&#8220;Lazy computation kicks the llama&#8217;s ass&#8221; &#8211; <b>Somebody</b></i></p>
+<p>
+The concept of a generator may be very foreign to those who haven&#8217;t really explored Python &#8211; though it is a general principle (like iterators). The crux of it is to <i>generate</i> the members of a set/relation one at time (which are subsequently returned). If you are not going to store the enumeration, this methods prevents needless use of memory (that may lead the program to be extremely slow). The trade of is the (minute) expense of storing some &#8220;state&#8221; in the function, and perhaps some additional function call overhead that is rarely a concern.
+</p>
+<p><span id="more-258"></span></p>
+<h3>An Example &#8211; Lexicographic generation of strings</h3>
+<p>
+    Let us begin by taking this example that is used to enumerate over all strings of length n in lexicographic order:
+</p>
+<div class="codecolorer-container python default" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;height:300px;"><table cellspacing="0" cellpadding="0"><tbody><tr><td style="padding:5px;text-align:center;color:#888888;background-color:#EEEEEE;border-right: 1px solid #9F9F9F;font: normal 12px/1.4em Monaco, Lucida Console, monospace;"><div>1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20<br />21<br />22<br />23<br />24<br />25<br />26<br />27<br />28<br />29<br />30<br />31<br /></div></td><td><div class="python codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">alphabet = <span style="color: black;">&#91;</span><span style="color: #483d8b;">'a'</span>,<span style="color: #483d8b;">'b'</span>,<span style="color: #483d8b;">'c'</span>,<span style="color: #483d8b;">'d'</span>,<span style="color: #483d8b;">'e'</span>,<span style="color: #483d8b;">'f'</span>,<span style="color: #483d8b;">'g'</span>,<span style="color: #483d8b;">'h'</span>,<span style="color: #483d8b;">'i'</span>,<span style="color: #483d8b;">'j'</span>,<span style="color: #483d8b;">'k'</span>,<span style="color: #483d8b;">'l'</span>,<span style="color: #483d8b;">'m'</span>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #483d8b;">'n'</span>,<span style="color: #483d8b;">'o'</span>,<span style="color: #483d8b;">'p'</span>,<span style="color: #483d8b;">'q'</span>,<span style="color: #483d8b;">'r'</span>,<span style="color: #483d8b;">'s'</span>,<span style="color: #483d8b;">'t'</span>,<span style="color: #483d8b;">'u'</span>,<span style="color: #483d8b;">'v'</span>,<span style="color: #483d8b;">'w'</span>,<span style="color: #483d8b;">'x'</span>,<span style="color: #483d8b;">'y'</span>,<span style="color: #483d8b;">'z'</span><span style="color: black;">&#93;</span><br />
+<span style="color: #ff7700;font-weight:bold;">def</span> gen_str<span style="color: black;">&#40;</span>n<span style="color: black;">&#41;</span>:<br />
+&nbsp; &nbsp; <span style="color: #808080; font-style: italic;"># Store the index into how &quot;far&quot; each character </span><br />
+&nbsp; &nbsp; <span style="color: #808080; font-style: italic;"># in the string of length n has gone</span><br />
+&nbsp; &nbsp; idx = <span style="color: black;">&#91;</span><span style="color: black;">&#93;</span><br />
+<br />
+&nbsp; &nbsp; <span style="color: #808080; font-style: italic;"># Initialise our word array</span><br />
+&nbsp; &nbsp; <span style="color: #ff7700;font-weight:bold;">for</span> i <span style="color: #ff7700;font-weight:bold;">in</span> <span style="color: #008000;">xrange</span><span style="color: black;">&#40;</span>n<span style="color: black;">&#41;</span>:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; idx.<span style="color: black;">append</span><span style="color: black;">&#40;</span><span style="color: #ff4500;">0</span><span style="color: black;">&#41;</span><br />
+<br />
+&nbsp; &nbsp; <span style="color: #008000;">list</span> = <span style="color: black;">&#91;</span><span style="color: black;">&#93;</span><br />
+&nbsp; &nbsp; <span style="color: #ff7700;font-weight:bold;">while</span> <span style="color: black;">&#40;</span>idx<span style="color: black;">&#91;</span><span style="color: #ff4500;">0</span><span style="color: black;">&#93;</span> <span style="color: #66cc66;">!</span>= <span style="color: #008000;">len</span><span style="color: black;">&#40;</span>alphabet<span style="color: black;">&#41;</span>-<span style="color: #ff4500;">1</span><span style="color: black;">&#41;</span>:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #008000;">str</span> = <span style="color: #483d8b;">&quot;&quot;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #ff7700;font-weight:bold;">for</span> j <span style="color: #ff7700;font-weight:bold;">in</span> <span style="color: #008000;">xrange</span><span style="color: black;">&#40;</span>n<span style="color: black;">&#41;</span>:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #008000;">str</span> += alphabet<span style="color: black;">&#91;</span>idx<span style="color: black;">&#91;</span>j<span style="color: black;">&#93;</span><span style="color: black;">&#93;</span><br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; idx<span style="color: black;">&#91;</span>n-<span style="color: #ff4500;">1</span><span style="color: black;">&#93;</span> += <span style="color: #ff4500;">1</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #808080; font-style: italic;"># Just like a clock - everytime the idx reaches the end </span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #808080; font-style: italic;"># of the alphabet list, reset it and increment the </span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #808080; font-style: italic;"># next character</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #ff7700;font-weight:bold;">for</span> j <span style="color: #ff7700;font-weight:bold;">in</span> <span style="color: #008000;">xrange</span><span style="color: black;">&#40;</span>n-<span style="color: #ff4500;">1</span>, <span style="color: #ff4500;">0</span>, -<span style="color: #ff4500;">1</span><span style="color: black;">&#41;</span>:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #ff7700;font-weight:bold;">if</span> <span style="color: black;">&#40;</span>idx<span style="color: black;">&#91;</span>j<span style="color: black;">&#93;</span> == <span style="color: #008000;">len</span><span style="color: black;">&#40;</span>alphabet<span style="color: black;">&#41;</span> - <span style="color: #ff4500;">1</span><span style="color: black;">&#41;</span>:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; idx<span style="color: black;">&#91;</span>j<span style="color: black;">&#93;</span> = <span style="color: #ff4500;">0</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; idx<span style="color: black;">&#91;</span>j-<span style="color: #ff4500;">1</span><span style="color: black;">&#93;</span> +=<span style="color: #ff4500;">1</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #ff7700;font-weight:bold;">else</span>:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #ff7700;font-weight:bold;">break</span><br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #008000;">list</span> += <span style="color: #008000;">str</span><br />
+<br />
+&nbsp; &nbsp; <span style="color: #ff7700;font-weight:bold;">return</span> <span style="color: #008000;">list</span></div></td></tr></tbody></table></div>
+<p>
+    Now for some back of the envelope calculations: If you ran this code for strings of length 5, you would be generating 26^5 = 11881376 strings each of length 6 (because of the null char) which amounts to 67Mb. One character more and you&#8217;d need 1.8Gb. Considering that you are going to throw this away immediately, clearly this is not the right approach. The &#8220;usual&#8221; approach to solving this problem is to include your code in the middle of this loop like so:
+</p>
+<div class="codecolorer-container python default" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><table cellspacing="0" cellpadding="0"><tbody><tr><td style="padding:5px;text-align:center;color:#888888;background-color:#EEEEEE;border-right: 1px solid #9F9F9F;font: normal 12px/1.4em Monaco, Lucida Console, monospace;"><div>1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br /></div></td><td><div class="python codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">&nbsp; &nbsp; &nbsp; &nbsp; ...<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #008000;">str</span> = <span style="color: #483d8b;">&quot;&quot;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #ff7700;font-weight:bold;">for</span> j <span style="color: #ff7700;font-weight:bold;">in</span> <span style="color: #008000;">xrange</span><span style="color: black;">&#40;</span>n<span style="color: black;">&#41;</span>:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #008000;">str</span> += alphabet<span style="color: black;">&#91;</span>idx<span style="color: black;">&#91;</span>j<span style="color: black;">&#93;</span><span style="color: black;">&#93;</span><br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #808080; font-style: italic;"># Computation goes here</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; random_computation<span style="color: black;">&#40;</span><span style="color: #008000;">str</span><span style="color: black;">&#41;</span><br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #808080; font-style: italic;"># Just like a clock - everytime the idx reaches the end </span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #808080; font-style: italic;"># of the alphabet list, reset it and increment the </span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #808080; font-style: italic;"># next character</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; idx<span style="color: black;">&#91;</span>n-<span style="color: #ff4500;">1</span><span style="color: black;">&#93;</span> += <span style="color: #ff4500;">1</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #ff7700;font-weight:bold;">for</span> j <span style="color: #ff7700;font-weight:bold;">in</span> <span style="color: #008000;">xrange</span><span style="color: black;">&#40;</span>n-<span style="color: #ff4500;">1</span>, <span style="color: #ff4500;">0</span>, -<span style="color: #ff4500;">1</span><span style="color: black;">&#41;</span>:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #ff7700;font-weight:bold;">if</span> <span style="color: black;">&#40;</span>idx<span style="color: black;">&#91;</span>j<span style="color: black;">&#93;</span> == <span style="color: #008000;">len</span><span style="color: black;">&#40;</span>alphabet<span style="color: black;">&#41;</span> - <span style="color: #ff4500;">1</span><span style="color: black;">&#41;</span>:<br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; ...</div></td></tr></tbody></table></div>
+<p>
+    This is clunky, ugly and non-generic, in other words evil. Another method you might devise is to use a &#8220;static&#8221; variable &#8211; this is of course for those of you who think in C.
+</p>
+<p>
+Python introduces a <em>beautifully</em> clean solution (as usual) &#8211; one word: <u>yield</u>. The yield keyword basically saves the state of this function, and returns to you the computed value. The first time you run the function you get a &#8220;generator object&#8221;, on which you call the &#8220;next()&#8221; function to step through (the generator object is also iterable by the way).  This modification allows you to compute any length strings in a breeze (much thanks to Kirtika for catching that my original post had &#8220;list += str&#8221; and &#8220;return list&#8221; in it instead of the yield command. Talk about a screw-up&#8230;):
+</p>
+<div class="codecolorer-container python default" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;height:300px;"><table cellspacing="0" cellpadding="0"><tbody><tr><td style="padding:5px;text-align:center;color:#888888;background-color:#EEEEEE;border-right: 1px solid #9F9F9F;font: normal 12px/1.4em Monaco, Lucida Console, monospace;"><div>1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20<br />21<br />22<br />23<br />24<br />25<br />26<br />27<br />28<br />29<br /></div></td><td><div class="python codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">alphabet = <span style="color: black;">&#91;</span><span style="color: #483d8b;">'a'</span>,<span style="color: #483d8b;">'b'</span>,<span style="color: #483d8b;">'c'</span>,<span style="color: #483d8b;">'d'</span>,<span style="color: #483d8b;">'e'</span>,<span style="color: #483d8b;">'f'</span>,<span style="color: #483d8b;">'g'</span>,<span style="color: #483d8b;">'h'</span>,<span style="color: #483d8b;">'i'</span>,<span style="color: #483d8b;">'j'</span>,<span style="color: #483d8b;">'k'</span>,<span style="color: #483d8b;">'l'</span>,<span style="color: #483d8b;">'m'</span>,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #483d8b;">'n'</span>, <span style="color: #483d8b;">'o'</span>,<span style="color: #483d8b;">'p'</span>,<span style="color: #483d8b;">'q'</span>,<span style="color: #483d8b;">'r'</span>,<span style="color: #483d8b;">'s'</span>,<span style="color: #483d8b;">'t'</span>,<span style="color: #483d8b;">'u'</span>,<span style="color: #483d8b;">'v'</span>,<span style="color: #483d8b;">'w'</span>,<span style="color: #483d8b;">'x'</span>,<span style="color: #483d8b;">'y'</span>,<span style="color: #483d8b;">'z'</span><span style="color: black;">&#93;</span><br />
+<span style="color: #ff7700;font-weight:bold;">def</span> gen_str<span style="color: black;">&#40;</span>n<span style="color: black;">&#41;</span>:<br />
+&nbsp; &nbsp; <span style="color: #808080; font-style: italic;"># Store the index into how &quot;far&quot; each character </span><br />
+&nbsp; &nbsp; <span style="color: #808080; font-style: italic;"># in the string of length n has gone</span><br />
+&nbsp; &nbsp; idx = <span style="color: black;">&#91;</span><span style="color: black;">&#93;</span><br />
+<br />
+&nbsp; &nbsp; <span style="color: #808080; font-style: italic;"># Initialise our word array</span><br />
+&nbsp; &nbsp; <span style="color: #ff7700;font-weight:bold;">for</span> i <span style="color: #ff7700;font-weight:bold;">in</span> <span style="color: #008000;">xrange</span><span style="color: black;">&#40;</span>n<span style="color: black;">&#41;</span>:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; idx.<span style="color: black;">append</span><span style="color: black;">&#40;</span><span style="color: #ff4500;">0</span><span style="color: black;">&#41;</span><br />
+<br />
+&nbsp; &nbsp; <span style="color: #008000;">list</span> = <span style="color: black;">&#91;</span><span style="color: black;">&#93;</span><br />
+&nbsp; &nbsp; <span style="color: #ff7700;font-weight:bold;">while</span> <span style="color: black;">&#40;</span>idx<span style="color: black;">&#91;</span><span style="color: #ff4500;">0</span><span style="color: black;">&#93;</span> <span style="color: #66cc66;">!</span>= <span style="color: #008000;">len</span><span style="color: black;">&#40;</span>alphabet<span style="color: black;">&#41;</span>-<span style="color: #ff4500;">1</span><span style="color: black;">&#41;</span>:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #008000;">str</span> = <span style="color: #483d8b;">&quot;&quot;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #ff7700;font-weight:bold;">for</span> j <span style="color: #ff7700;font-weight:bold;">in</span> <span style="color: #008000;">xrange</span><span style="color: black;">&#40;</span>n<span style="color: black;">&#41;</span>:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #008000;">str</span> += alphabet<span style="color: black;">&#91;</span>idx<span style="color: black;">&#91;</span>j<span style="color: black;">&#93;</span><span style="color: black;">&#93;</span><br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; idx<span style="color: black;">&#91;</span>n-<span style="color: #ff4500;">1</span><span style="color: black;">&#93;</span> += <span style="color: #ff4500;">1</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #808080; font-style: italic;"># Just like a clock - everytime the idx reaches the end </span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #808080; font-style: italic;"># of the alphabet list, reset it and increment the </span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #808080; font-style: italic;"># next character</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #ff7700;font-weight:bold;">for</span> j <span style="color: #ff7700;font-weight:bold;">in</span> <span style="color: #008000;">xrange</span><span style="color: black;">&#40;</span>n-<span style="color: #ff4500;">1</span>, <span style="color: #ff4500;">0</span>, -<span style="color: #ff4500;">1</span><span style="color: black;">&#41;</span>:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #ff7700;font-weight:bold;">if</span> <span style="color: black;">&#40;</span>idx<span style="color: black;">&#91;</span>j<span style="color: black;">&#93;</span> == <span style="color: #008000;">len</span><span style="color: black;">&#40;</span>alphabet<span style="color: black;">&#41;</span> - <span style="color: #ff4500;">1</span><span style="color: black;">&#41;</span>:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; idx<span style="color: black;">&#91;</span>j<span style="color: black;">&#93;</span> = <span style="color: #ff4500;">0</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; idx<span style="color: black;">&#91;</span>j-<span style="color: #ff4500;">1</span><span style="color: black;">&#93;</span> +=<span style="color: #ff4500;">1</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #ff7700;font-weight:bold;">else</span>:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #ff7700;font-weight:bold;">break</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #808080; font-style: italic;"># The line that does it all</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #ff7700;font-weight:bold;">yield</span> <span style="color: #008000;">str</span></div></td></tr></tbody></table></div>
+<div class="codecolorer-container text default" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><table cellspacing="0" cellpadding="0"><tbody><tr><td style="padding:5px;text-align:center;color:#888888;background-color:#EEEEEE;border-right: 1px solid #9F9F9F;font: normal 12px/1.4em Monaco, Lucida Console, monospace;"><div>1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br /></div></td><td><div class="text codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">In [2]: g = gen_str(10)<br />
+<br />
+In [3]: g<br />
+Out[3]: &lt;generator object gen_str at 0xa1da144&gt;<br />
+<br />
+In [4]: for i in xrange(3): g.next()<br />
+Out[4]: 'aaaaaaaaaa'<br />
+Out[4]: 'aaaaaaaaab'<br />
+Out[4]: 'aaaaaaaaac'</div></td></tr></tbody></table></div>
+<p>
+    For comparison, this code was used to generate SQL files for an assignment in our databases course. The earlier version took greater than 10 min. to run (before exhausting all my memory mind you). The newer version took about 10 seconds.
+</p>
+<h3>Enumeration of Infinite Sets</h3>
+<p>
+    A key result of the generator model is that it enables you to enumerate/work on potentially infinite sets! For example take this example to enumerate all even numbers (I agree this is a pointless example, but bear with me):
+</p>
+<div class="codecolorer-container python default" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><table cellspacing="0" cellpadding="0"><tbody><tr><td style="padding:5px;text-align:center;color:#888888;background-color:#EEEEEE;border-right: 1px solid #9F9F9F;font: normal 12px/1.4em Monaco, Lucida Console, monospace;"><div>1<br />2<br />3<br />4<br />5<br />6<br /></div></td><td><div class="python codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #ff7700;font-weight:bold;">def</span> EvenGenerator<span style="color: black;">&#40;</span><span style="color: black;">&#41;</span>:<br />
+&nbsp; &nbsp; x = <span style="color: #ff4500;">0</span><br />
+<br />
+&nbsp; &nbsp; <span style="color: #ff7700;font-weight:bold;">while</span><span style="color: black;">&#40;</span><span style="color: #ff4500;">1</span><span style="color: black;">&#41;</span>:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #ff7700;font-weight:bold;">yield</span> x<br />
+&nbsp; &nbsp; &nbsp; &nbsp; x += <span style="color: #ff4500;">2</span></div></td></tr></tbody></table></div>
+<div class="codecolorer-container text default" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><table cellspacing="0" cellpadding="0"><tbody><tr><td style="padding:5px;text-align:center;color:#888888;background-color:#EEEEEE;border-right: 1px solid #9F9F9F;font: normal 12px/1.4em Monaco, Lucida Console, monospace;"><div>1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br /></div></td><td><div class="text codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap">In [1]: g = EvenGenerator()<br />
+<br />
+In [2]: for i in xrange(10): g.next()<br />
+&nbsp; &nbsp;...: <br />
+Out[2]: 0<br />
+Out[2]: 2<br />
+Out[2]: 4<br />
+Out[2]: 6<br />
+Out[2]: 8<br />
+Out[2]: 10<br />
+Out[2]: 12<br />
+Out[2]: 14<br />
+Out[2]: 16<br />
+Out[2]: 18</div></td></tr></tbody></table></div>
+<p>
+This is something you <i>just can&#8217;t do</i> otherwise.
+</p>
+<h3>Generators in C++</h3>
+<p>
+    For the sake for completeness, I&#8217;d like to touch upon how you could implement such a model in C++. Being object-oriented, C++ also lends an elegant, though not as succinct an implementation &#8211; Functors (aka function objects). This obscure functionality of C++ is terribly powerful, but I&#8217;m quite certain that few C++ coders have ever heard or considered it.
+</p>
+<div class="codecolorer-container cpp default" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><table cellspacing="0" cellpadding="0"><tbody><tr><td style="padding:5px;text-align:center;color:#888888;background-color:#EEEEEE;border-right: 1px solid #9F9F9F;font: normal 12px/1.4em Monaco, Lucida Console, monospace;"><div>1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br /></div></td><td><div class="cpp codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #0000ff;">class</span> EvenGenerator<br />
+<span style="color: #008000;">&#123;</span><br />
+&nbsp; &nbsp; <span style="color: #0000ff;">private</span><span style="color: #008080;">:</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #0000ff;">int</span> val<span style="color: #008080;">;</span><br />
+&nbsp; &nbsp; <span style="color: #0000ff;">public</span><span style="color: #008080;">:</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; SinXGenerator<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #008000;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; val <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #008080;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #008000;">&#125;</span><br />
+<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #0000ff;">int</span> operator<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #008000;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #0000ff;">int</span> val_<span style="color: #008080;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; val_ <span style="color: #000080;">=</span> val<span style="color: #008080;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; val <span style="color: #000040;">+</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span><span style="color: #008080;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #0000ff;">return</span> val_<span style="color: #008080;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #008000;">&#125;</span><br />
+<span style="color: #008000;">&#125;</span></div></td></tr></tbody></table></div>
+<p>
+    Notice the semantics of the operator() function. If you understand operator overloading, it&#8217;s pretty clear what&#8217;s happening here.
+</p>
+<p>
+    Now, as I mentioned earlier, the core behind a generator is storing the intermediate state of a computation. Python handles this internally. If you wish to do the same in C++, simply define a function object that modifies it&#8217;s private variables every time operator() is called, like so:
+</p>
+<p>
+    Every time you instantiate an EvenGenerator, you&#8217;ll have a shiny new object with an initial state, and each object is independent.
+</p>
+<div class="codecolorer-container cpp default" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><table cellspacing="0" cellpadding="0"><tbody><tr><td style="padding:5px;text-align:center;color:#888888;background-color:#EEEEEE;border-right: 1px solid #9F9F9F;font: normal 12px/1.4em Monaco, Lucida Console, monospace;"><div>1<br />2<br />3<br />4<br />5<br />6<br />7<br /></div></td><td><div class="cpp codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #0000ff;">int</span> operator<span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><span style="color: #008000;">&#40;</span><span style="color: #008000;">&#41;</span><br />
+<span style="color: #008000;">&#123;</span><br />
+&nbsp; &nbsp; <span style="color: #0000ff;">int</span> val_<span style="color: #008080;">;</span><br />
+&nbsp; &nbsp; val_ <span style="color: #000080;">=</span> val<span style="color: #008080;">;</span><br />
+&nbsp; &nbsp; val <span style="color: #000040;">+</span><span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span><span style="color: #008080;">;</span><br />
+&nbsp; &nbsp; <span style="color: #0000ff;">return</span> val_<span style="color: #008080;">;</span><br />
+<span style="color: #008000;">&#125;</span></div></td></tr></tbody></table></div>
+<h3>Generators in C</h3>
+<p>
+    C does not lend itself naturally to such a paradigm, and any implementation is intrinsically clunky (as usual). While static functions &#8220;work&#8221;, they do not lead to re-entrant code. Before I move on to what I&#8217;ve thought of, an example of a very clunky implementation a &#8220;generator&#8221; in readline&#8217;s autocomplete example (perhaps more details in a future article):
+</p>
+<div class="codecolorer-container c default" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;height:300px;"><table cellspacing="0" cellpadding="0"><tbody><tr><td style="padding:5px;text-align:center;color:#888888;background-color:#EEEEEE;border-right: 1px solid #9F9F9F;font: normal 12px/1.4em Monaco, Lucida Console, monospace;"><div>1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20<br />21<br />22<br />23<br />24<br />25<br />26<br />27<br /></div></td><td><div class="c codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #993333;">const</span> <span style="color: #993333;">char</span><span style="color: #339933;">*</span> cmds<span style="color: #009900;">&#91;</span><span style="color: #009900;">&#93;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; <span style="color: #ff0000;">&quot;SUBLIMINAL&quot;</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">&quot;MESSAGE&quot;</span><span style="color: #339933;">,</span> <span style="color: #ff0000;">&quot;HERE&quot;</span><br />
+<span style="color: #009900;">&#125;</span><span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #993333;">char</span><span style="color: #339933;">*</span><br />
+cmd_generator <span style="color: #009900;">&#40;</span><span style="color: #993333;">const</span> <span style="color: #993333;">char</span><span style="color: #339933;">*</span> text<span style="color: #339933;">,</span> <span style="color: #993333;">int</span> state<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">static</span> <span style="color: #993333;">int</span> list_idx<span style="color: #339933;">,</span> len<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">const</span> <span style="color: #993333;">char</span><span style="color: #339933;">*</span> name<span style="color: #339933;">;</span><br />
+<br />
+&nbsp; &nbsp; <span style="color: #b1b100;">if</span><span style="color: #009900;">&#40;</span>state <span style="color: #339933;">==</span> <span style="color: #0000dd;">0</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; list_idx <span style="color: #339933;">=</span> <span style="color: #0000dd;">0</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; len <span style="color: #339933;">=</span> &nbsp;strlen<span style="color: #009900;">&#40;</span>text<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+<br />
+&nbsp; &nbsp; <span style="color: #b1b100;">while</span> <span style="color: #009900;">&#40;</span>name <span style="color: #339933;">=</span> cmds<span style="color: #009900;">&#91;</span>list_idx<span style="color: #009900;">&#93;</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; &nbsp; list_idx<span style="color: #339933;">++;</span><br />
+<br />
+&nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">if</span> <span style="color: #009900;">&#40;</span>strncasecmp <span style="color: #009900;">&#40;</span>name<span style="color: #339933;">,</span> text<span style="color: #339933;">,</span> len<span style="color: #009900;">&#41;</span> <span style="color: #339933;">==</span> <span style="color: #0000dd;">0</span><span style="color: #009900;">&#41;</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span style="color: #b1b100;">return</span> <span style="color: #009900;">&#40;</span>strdup<span style="color: #009900;">&#40;</span>name<span style="color: #009900;">&#41;</span><span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; <span style="color: #009900;">&#125;</span><br />
+<br />
+&nbsp; &nbsp; <span style="color: #b1b100;">return</span> <span style="color: #009900;">&#40;</span><span style="color: #009900;">&#40;</span><span style="color: #993333;">char</span><span style="color: #339933;">*</span><span style="color: #009900;">&#41;</span>NULL<span style="color: #009900;">&#41;</span><span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span></div></td></tr></tbody></table></div>
+<p>
+    This is still not re-entrant as only one person can use the generator at any given time. A possible implementation to solve this is to store the intermediate state of a computation in a struct, and pass this to the generator function each time:
+</p>
+<div class="codecolorer-container c default" style="overflow:auto;white-space:nowrap;border:1px solid #9F9F9F;width:435px;"><table cellspacing="0" cellpadding="0"><tbody><tr><td style="padding:5px;text-align:center;color:#888888;background-color:#EEEEEE;border-right: 1px solid #9F9F9F;font: normal 12px/1.4em Monaco, Lucida Console, monospace;"><div>1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br /></div></td><td><div class="c codecolorer" style="padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap"><span style="color: #993333;">typedef</span> <span style="color: #993333;">struct</span> EvenGeneratorState_<br />
+<span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">int</span> val<span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span> EvenGeneratorState<span style="color: #339933;">;</span><br />
+<br />
+<span style="color: #993333;">int</span> EvenGenerator<span style="color: #009900;">&#40;</span>EvenGeneratorState<span style="color: #339933;">*</span> state<span style="color: #009900;">&#41;</span><br />
+<span style="color: #009900;">&#123;</span><br />
+&nbsp; &nbsp; <span style="color: #993333;">int</span> val_<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; val_ <span style="color: #339933;">=</span> state<span style="color: #339933;">-&gt;</span>val<span style="color: #339933;">;</span><br />
+&nbsp; &nbsp; state<span style="color: #339933;">-&gt;</span>val <span style="color: #339933;">+=</span> <span style="color: #0000dd;">2</span><span style="color: #339933;">;</span><br />
+<br />
+&nbsp; &nbsp; <span style="color: #b1b100;">return</span> val_<span style="color: #339933;">;</span><br />
+<span style="color: #009900;">&#125;</span></div></td></tr></tbody></table></div>
+<p>
+    Sure it&#8217;s clunky, but that&#8217;s C for you.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://arun.chagantys.org/blog/?feed=rss2&amp;p=258</wfw:commentRss>
+		<slash:comments>4</slash:comments>
+		</item>
+		<item>
+		<title>Excursions in Programming</title>
+		<link>http://arun.chagantys.org/blog/?p=256</link>
+		<comments>http://arun.chagantys.org/blog/?p=256#comments</comments>
+		<pubDate>Thu, 12 Nov 2009 12:52:44 +0000</pubDate>
+		<dc:creator>Arun Tejasvi Chaganty</dc:creator>
+				<category><![CDATA[technical]]></category>
+		<category><![CDATA[programming]]></category>
+
+		<guid isPermaLink="false">http://arun.chagantys.org/blog/?p=256</guid>
+		<description><![CDATA[
+If I have not written anything literary over the past month or so, it has been for the singular reason that the only thing occupying my senses has been code (and it&#8217;s not like the situation has changed in the least bit). While I have several musings about the nature of expression, and what not [...]]]></description>
+			<content:encoded><![CDATA[<p>
+If I have not written anything literary over the past month or so, it has been for the singular reason that the only thing occupying my senses has been code (and it&#8217;s not like the situation has changed in the least bit). While I have several musings about the nature of expression, and what not brewing in my head, I thought I might spend a moment to elaborate on the interesting programming paradigms/techniques or such that I&#8217;ve played around with in the recent past.
+</p>
+<p>
+This list spans an infinity, and having much to say about each I&#8217;ve decided to start an &#8220;Excursions in Programming&#8221; series to cover them in sufficient length to do them justice. While these techniques may be nothing new to those who&#8217;ve used it, I think they serve as eye-openers to those who haven&#8217;t. I hope that this collection will interest those few readers who share an interest in programming.
+</p>
+<h3>What&#8217;s in Store</h3>
+<ol>
+<li>Generators in Python, C and C++</li>
+<li>Lambda functions in Python</li>
+<li>The almighty __setattr__ in Python</li>
+<li>PDB and Python</li>
+<li>Private functions in Python</li>
+<li>Using readline</li>
+<li>Notes on Yacc/Bison</li>
+<li>The Power of Git</li>
+<li>Valgrind, GDB GProf</li>
+</ol>
+<p>
+I&#8217;ll probably take my time to generate this whole list, but rest assured that I will have less technical topics in between.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://arun.chagantys.org/blog/?feed=rss2&amp;p=256</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+		<item>
+		<title>On Computational Creativity</title>
+		<link>http://arun.chagantys.org/blog/?p=252</link>
+		<comments>http://arun.chagantys.org/blog/?p=252#comments</comments>
+		<pubDate>Mon, 12 Oct 2009 13:09:32 +0000</pubDate>
+		<dc:creator>Arun Tejasvi Chaganty</dc:creator>
+				<category><![CDATA[general]]></category>
+		<category><![CDATA[technical]]></category>
+
+		<guid isPermaLink="false">http://arun.chagantys.org/blog/?p=252</guid>
+		<description><![CDATA[
+A recent discussion with a friend, Ramya, on the topic of Computational Creativity got me thinking. For sure my views will change in the course of time, but at least I would have penned down &#8211; and safely stored &#8211; my initial views that I may come back in a month or so and chuckle [...]]]></description>
+			<content:encoded><![CDATA[<p>
+A recent discussion with a friend, Ramya, on the topic of Computational Creativity got me thinking. For sure my views will change in the course of time, but at least I would have penned down &#8211; and safely stored &#8211; my initial views that I may come back in a month or so and chuckle at my naivety.
+</p>
+<p><span id="more-252"></span></p>
+<p>
+A nice question that Ramya asked was not the standard &#8220;Could computer programs even be capable of creativity?&#8221; (which is IMHO a completely philosophical discussion and I side an author a work I read &#8211; it entirely depends on how you define creativity), but rather, &#8220;Why would you want &#8216;creative&#8217; programs in the first place?&#8221;. Computer programs that <i>detect or comprehend things that humans can do</i> (like how programs can detect handwriting, or pictures, etc.) are immensely useful to us, it helps simplify a lot of routine work.
+</p>
+<p>
+If you look at the point of human existence as an elaborate ploy to create things (and subsequently destroy them), as I do, &#8220;creative programs&#8221; seem like a step in the opposite direction. Does &#8220;creativity&#8221; have any meaning to us if it doesn&#8217;t involve our own ingenuity? Or in other words, do we appreciate &#8220;creations&#8221; because of the mystery in their happening (as we do with nature or other artists?). I think not &#8211; what difference should it make whether creative arts produced by a &#8220;computer&#8221; or anyone else. Of course, computational creativity is hardly good enough to actually be appreciated (except in art, where there are some really good results (<a href="http://www.stanford.edu/group/SHR/4-2/text/cohen.html">&#8220;Aaron the Painter&#8221;</a> and <a href="http://en.wikipedia.org/wiki/Computational_creativity#External_links">Wikipedia</a>).
+</p>
+<p>
+My interest in the topic is purely academic, and the preceding discussion is more or less for amusement. To me computational creativity has 4 raisons d&#8217;etre:</p>
+<ol>
+<li>To better understand the process of creativity.</li>
+<li>In all likelihood we will find that computational methods can not produce human-like output (perhaps it is foolish to think they should be human-like &#8211; perhaps it&#8217;s output is &#8220;better&#8221; &#8211; though I doubt it), and we rejoice our uniqueness and awesomeness and go own with our inane item songs and pointless reality shows and whatnot.</li>
+<li>To exercise our own creativity in creating something capable of &#8220;creativity&#8221;</li>
+<li>(My favourite) To take our own creativity to the next level. What new majestic works of art would be we be capable of if we had help in our planning and execution? Could we plan or design a grand musical tapestry at a high level and fine tune computationally &#8220;created&#8221; output generated?</li>
+</ol>
+<p>
+A concluding note, it often seems eerie how we categorically dispel any sense of &#8220;self-importance&#8221;. We are not at the centre of the universe, we are nothing but evolved monkeys (amoeba even), we are largely made from the same chemicals that make up lipstick and Garry Kasparov could be defeated by a computer program&#8230;</p>
+]]></content:encoded>
+			<wfw:commentRss>http://arun.chagantys.org/blog/?feed=rss2&amp;p=252</wfw:commentRss>
+		<slash:comments>9</slash:comments>
+		</item>
+		<item>
+		<title>Shaastra 2009 Hackfest Roundup</title>
+		<link>http://arun.chagantys.org/blog/?p=244</link>
+		<comments>http://arun.chagantys.org/blog/?p=244#comments</comments>
+		<pubDate>Thu, 08 Oct 2009 20:41:32 +0000</pubDate>
+		<dc:creator>Arun Tejasvi Chaganty</dc:creator>
+				<category><![CDATA[technical]]></category>
+		<category><![CDATA[iitm]]></category>
+		<category><![CDATA[lug]]></category>
+		<category><![CDATA[shaastra]]></category>
+
+		<guid isPermaLink="false">http://arun.chagantys.org/blog/?p=244</guid>
+		<description><![CDATA[
+IIT Madras hosted it&#8217;s second hackfest last weekend, during it&#8217;s annual techfest, Shaastra. The hackfest was phenomenally successful, with 6 projects running concurrently producing about 7-8 patches in total. Within our second instalment itself, we&#8217;ve probably established ourselves as the most productive student-run hackfest in India, something we are extremely proud of 1. The hackfest [...]]]></description>
+			<content:encoded><![CDATA[<p>
+IIT Madras hosted it&#8217;s second hackfest last weekend, during it&#8217;s annual techfest, Shaastra. The hackfest was phenomenally successful, with 6 projects running concurrently producing about 7-8 patches in total. Within our second instalment itself, we&#8217;ve probably established ourselves as the most productive student-run hackfest in India, something we are extremely proud of <sup><a href="#foot-1" name="link-1">1</a></sup>. The hackfest is of course something that is very dear to me, and it was really heartening to see it bloom like it did. A review of what happened last year can be found <a href="http://arun.chagantys.org/blog/?p=50">here</a>.
+</p>
+<p>
+The projects that were being hacked on this year were:</p>
+<table>
+<thead>
+<td><b> Organisation </b></td>
+<td><b> Mentor </b></td>
+</thead>
+<tbody>
+<tr>
+<td>Sugar OS</td>
+<td>iwikiwi</td>
+</tr>
+<tr>
+<td>ffmpeg</td>
+<td>Jai Menon (jai)</td>
+</tr>
+<tr>
+<td>GNOME</td>
+<td>Arun Chaganty (vimzard)</td>
+</tr>
+<tr>
+<td>OpenEmbedded</td>
+<td>Kirtika Ruchandani (rkirti)</td>
+</tr>
+<tr>
+<td>Firefox</td>
+<td><a href="http://sid0.blogspot.com/">Siddarth Agarwal (sid0)</a></td>
+</tr>
+<tr>
+<td>Linux</td>
+<td>Team IBM</td>
+</tr>
+</tbody>
+</table>
+<p>
+Rumours had it that KDE was also present at the hackfest, led by <a href="http://kstars.wordpress.com/">Akarsh Simha (kstar)</a>, but I think they never managed to get KDE to build <img src='http://arun.chagantys.org/blog/wp-includes/images/smilies/icon_wink.gif' alt=';-)' class='wp-smiley' /> .
+</p>
+<p><span id="more-244"></span></p>
+<p>
+The FOSS events at Shaastra this time started off with Atul Chitnis (foss.in) giving an introductory talk about what FOSS was and why one should contribute, shortly followed by Shreyas Srinvasan (shreyas) giving his most awesome &#8220;FOSS Foundry&#8221; talk (the same as last year, only this time we had a net connection going, and things were a lot more streamlined than last year). Later in the evening, we had a brief introductory session where each project &#8220;leader&#8221; spoke about their project.
+</p>
+<p>
+During Night 1, there were some initial hiccups in the setup, and build systems, but they were quickly resolved by the truly amazing Subhashini (our super-&#8217;vol&#8217;), and covered up by a rather arbit talk about IRC by me. The groups were split up, each group occupying a different part of the department. Unfortunately, since I was organising one of the hackfests, I didn&#8217;t really get to check out the awesome things the other groups were doing. I do know that sid0 was working on making Firefox plugins using Jetpack, Jai introduced participants to ffmpeg internals, and Akarsh was basically compiling KDE.
+</p>
+<p>
+I started my session off as a GTK+ workshop, working my way up through getting help for yourself, what the point of function pointers was, makefiles and finally how the whole GTK main loop, etc. works. It was all ad-hoc, and followed a path best modelled as a Brownian motion. However, the objective of the first night was to equip the participants with the tools they would need to work on GNOME code. It was really heartening to see participants try interesting and ambitious stuff with simple GTK+ applications I had asked them to make. If nothing else, I feel confident that atleast 10 more people have become GTK+-literate, and I think that&#8217;s a starting point for a lot of awesomeness.
+</p>
+<p>
+Night 2&#8217;s goal was to actually get participants to hack on simple bugs. The plan was to work on removing some deprecated symbols, etc. as listed on GnomeGoals<sup><a href="#foot-2" name="link-2">2</a></sup>. I did give a demo on what it takes to create a patch for GHex and <a href="http://live.gnome.org/GnomeGoals/CorrectDesktopFiles">this GnomeGoal</a>. In one of those amazing hackfest moments, one of the participants found a bug in GNibbles &#8211; the scorecard/preferences, etc. dialgos are not modal. This meant that you could change the game&#8217;s settings while the game is in progress, but of greater alarm was the fact that the game&#8217;s state machine to pause / unpause the game would get f00ed if you opened the dialog boxes before starting any game. This program was easily remedied by making the dialogs modal. It was but a 3-4 line patch, but initiated two rather awesome chaps &#8211; Bhargav Prasanna, and YuviPanda &#8211; into GNOME (Bug <a href="https://bugzilla.gnome.org/show_bug.cgi?id=531825">#531825</a>). Bhargav Prasanna continued to work on another bug, this time entirely on his own, this one was: Bug <a href="http://live.gnome.org/GnomeGoals/CorrectDesktopFiles">#323309</a>.
+</p>
+<p>
+I was also a participant in the Open Embeedded workshop/hackfest that happened on Day 3. I&#8217;m sure <a href="http://rkirti.wordpress.com">Kirtika Ruchandani</a> will post more about it, but as a participant this time, I can say that it was tremendous fun. Most of the bugs were more trivial, and less involved than those found in raw code, and that meant that we could fix them without know a thing about OE <img src='http://arun.chagantys.org/blog/wp-includes/images/smilies/icon_wink.gif' alt=';-)' class='wp-smiley' /> . Subhashini (the super-vol) and I worked on a couple of bugs reported to the tracker, and she got to submit her first patch (Bug <a href="http://bugs.openembedded.org/show_bug.cgi?id=5325">#5325</a> &#8211; it hasn&#8217;t been committed yet). We also spent some time coming up with a bash completion script for bitbake (<a href="http://bugs.openembedded.org/show_bug.cgi?id=5326">#5326</a> &#8211; also accepted, the OE community is <i>fast</i>).
+</p>
+<p>A brief shoutout to the amazing people that made it happen:</p>
+<ul>
+<li>Vinay Hegde, Prakash Mohan, and the rest of the Hackfest Team: They organised the whole show, putting endless nightouts to get things working.</li>
+<li>Akarsh Simha (kstar): He was responsible for getting the whole team fired up, and moving, and putting endless nightouts to get KDE to compile.</li>
+<li>Subhashini: The tireless super-vol was responsible for setting up the whole lab, and made the hackfest happen. I can safely say that without her dedication and expertise, we would have been a struggling no-show, some what like how last year had turned out. Infinite props to her.</li>
+<li>Akarsh Simha, Siddarth Agarwal, Jai Menon, iwikiwi, Kiritka, and the IBM guys: They flew down here to lead hackfests for their respective organisations, and really added zing to the show</li>
+</ul>
+<p>
+Here&#8217;s a list of other peoples&#8217; views on the hackfest:</p>
+<ul>
+<li> Akarsh also has his review up <a href="http://kstars.wordpress.com/2009/10/02/shaastra-2009-hackfest-day-1/">here</a> and <a href="http://kstars.wordpress.com/2009/10/02/shaastra-2009-hackfest/">here</a>.</li>
+<li> YuviPanda has <a href="http://yuvi.in/blog/hackfest-09-expectations.html">this</a> and <a href="http://yuvi.in/blog/what-i-learnt-from-the-hackfest-at-iitm.html">yet another</a>.</li>
+<li> <a href="http://www.linuxforu.com/news/community/hackfest-shaastra-09-iit-madras/">Bhargav Prasanna</a>&#8217;s seems to have made it to LFY!
+<li> <a href="http://www.retroficial.org/2009/10/shaastra-2009-hackfest.html">Jai Menon</a>&#8217;s
+</ul>
+<p>(Much thank to Kirtika for coming up with this list)</p>
+<h3>Footnotes</h3>
+<p><sup><a href="#link-1" name="foot-1">1</a></sup> Contenders to the statement are more than welcome. <br />
+<sup><a href="#link-2" name="foot-2">2</a></sup> A brief aside here &#8211; GNOME&#8217;s wiki brilliantly documents simple tasks that need to be done. I am particularly impressed by this <a href="http://www.gnome.org/~fpeters/299.html">link</a> which dynamically populates a list of GNOME projects with how <i>much</i> deprecated code they use. It was tremendously easy for me to find out what tasks we could do in our hack night. </p>
+]]></content:encoded>
+			<wfw:commentRss>http://arun.chagantys.org/blog/?feed=rss2&amp;p=244</wfw:commentRss>
+		<slash:comments>2</slash:comments>
+		</item>
+		<item>
+		<title>Paper Soap Pulicat</title>
+		<link>http://arun.chagantys.org/blog/?p=235</link>
+		<comments>http://arun.chagantys.org/blog/?p=235#comments</comments>
+		<pubDate>Wed, 23 Sep 2009 17:49:54 +0000</pubDate>
+		<dc:creator>Arun Tejasvi Chaganty</dc:creator>
+				<category><![CDATA[general]]></category>
+
+		<guid isPermaLink="false">http://arun.chagantys.org/blog/?p=235</guid>
+		<description><![CDATA[This weekend, CocoD and I embarked on an adventurous trail deep into the Tam heartland to India&#8217;s second largest lagoon, Pulicat Lake. Soaking in the sights, sounds (and smells &#8211; good god we wish we didn&#8217;t), the two of us boldly proved our manliness by cycling the whole of the 62.8 km (ref. Google Maps), [...]]]></description>
+			<content:encoded><![CDATA[<p>This weekend, CocoD and I embarked on an adventurous trail deep into the Tam heartland to India&#8217;s second largest lagoon, <a href="http://en.wikipedia.org/wiki/Pulicat_Lake">Pulicat Lake</a>. Soaking in the sights, sounds (and smells &#8211; good god we wish we didn&#8217;t), the two of us boldly proved our manliness by cycling the whole of the 62.8 km (ref. Google Maps), on the ultimate chick magnet, the Tam Cycle. The two of us also boldly proved our idiocy, carrying only our bags, some grub, spare change, a video camera and some paper soap. What follows are the chronicles of our tripiocity.</p>
+<p><span id="more-235"></span></p>
+<div id="attachment_237" class="wp-caption alignleft" style="width: 333px"><img class="size-large wp-image-237  " title="Dutch Cemetery" src="http://arun.chagantys.org/blog/wp-content/uploads/2009/09/pulicat-768x1024.jpg" alt="The &quot;fearsome&quot; Dutch Cemetery" width="323" height="430" /><p class="wp-caption-text">The &quot;fearsome&quot; Dutch Cemetery</p></div>
+<p>Having decided to go on the trip only about 8 hours before actually leaving, we didn&#8217;t do much of that &#8220;planning&#8221; business. We just bought some grub, and took a map of the route there (courtesy Google Maps of course), and got out Coco&#8217;s trusty (yet dusty) &#8216;ol video camera. Our famed &#8220;BBz&#8221; was sadly reduced to the less prolific BBz-2 (for the record, one of the BBz ditched us, and the other chickened out. For those who know who we are, which one did which is rather obvious). We set out at 4:50 (am &#8211; yes we can get up that early), only 50 minutes from when we actually planned, and spent a good hour cycling in the wrong direction (my fault entirely). Post some course-correction, and about 2 hours, we had explored all of the Chennai coast and had vented our anger at it&#8217;s utter lack of drainage systems. After another 3 hours on the highway, we rode into town.</p>
+<p>Few words can describe Pulicat. Not to throw you off, this is simply because there is very little to be described about. It has neither a lodge, nor a restaurant. But since we were riding Tam cycles, and spoke &#8220;Tam&#8221;, we blended right in, and made ourselves a deal for a place to take a bath (thank god for that), some grub, a boat ride across the lake, and a tent to crash on the beach with. Of course, being &#8220;Tam&#8221; doesn&#8217;t mean you don&#8217;t get scammed.</p>
+<p>Probably the only &#8220;thing&#8221; to see there is the Dutch Cemetery, which is singularly boring as well. We began our video diary there (so as to scar future generations), took a couple of videos along the way, and for the rest of the trip. I got to steer the boat for a short while (ooh &#8211; caught on tape), and we setup tent on the beach. Let it be known that there is nothing more awesome than crashing on the beach, what with that blissful sound of beating waves, fresh breeze, and constant fear of being sucked in by the tide. I don&#8217;t think I&#8217;ve ever crashed that well before &#8211; it made the whole trip worth it.</p>
+<p>Next morning we set out at 6, and made it back to the city by 9 or earlier (that&#8217;s 45km folks). Unfortunately, we got stuck in the city and it&#8217;s horrid traffic &#8211; swore in public (loudly), experienced road rage on a whole new dimension, got harassed by a cop, and finally made it back to insti. In summary, we put infinite fight to cycle 60 km to the middle of nowhere, crash there, and come back. There are somethings that you just can&#8217;t change; we just had to maintain the time-honoured principle of the BBz &#8211; <strong>Veni, Vidi, Dormi</strong>.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://arun.chagantys.org/blog/?feed=rss2&amp;p=235</wfw:commentRss>
+		<slash:comments>3</slash:comments>
+		</item>
+	</channel>
+</rss>

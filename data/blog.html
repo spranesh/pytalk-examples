@@ -1,0 +1,455 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head profile="http://gmpg.org/xfn/11">
+	<title>arun.chaganty &gt; Overengineering since 1989</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<link rel="stylesheet" type="text/css" media="screen,projection" href="http://arun.chagantys.org/blog/wp-content/themes/simplr-mod/style.css" title="Simplr" />
+	<link rel="stylesheet" type="text/css" media="print" href="http://arun.chagantys.org/blog/wp-content/themes/simplr-mod/print.css" />
+	<link rel="icon" type="image/x-icon" media="print" href="http://arun.chagantys.org/blog/wp-content/themes/simplr-mod/images/favicon.ico" />
+	<link rel="alternate" type="application/rss+xml" href="http://arun.chagantys.org/blog/?feed=rss2" title="arun.chaganty RSS feed" />
+	<link rel="alternate" type="application/rss+xml" href="http://arunchaganty.disqus.com/latest.rss" title="arun.chaganty comments RSS feed" />
+	<link rel="pingback" href="http://arun.chagantys.org/blog/xmlrpc.php" />
+
+<link rel='stylesheet' id='codecolorer-css'  href='http://arun.chagantys.org/blog/wp-content/plugins/codecolorer/codecolorer.css?ver=0.9.8' type='text/css' media='screen' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://arun.chagantys.org/blog/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://arun.chagantys.org/blog/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='arun.chaganty' href='http://arun.chagantys.org/blog' />
+<meta name="generator" content="WordPress 2.9.2" />
+
+<!-- Bad Behavior 2.0.36 run time: 2.803 ms -->
+<script type="text/javascript">
+<!--
+function bb2_addLoadEvent(func) {
+	var oldonload = window.onload;
+	if (typeof window.onload != 'function') {
+		window.onload = func;
+	} else {
+		window.onload = function() {
+			oldonload();
+			func();
+		}
+	}
+}
+
+bb2_addLoadEvent(function() {
+	for ( i=0; i < document.forms.length; i++ ) {
+		if (document.forms[i].method == 'post') {
+			var myElement = document.createElement('input');
+			myElement.setAttribute('type', 'hidden');
+			myElement.name = 'bb2_screener_';
+			myElement.value = '1284764854 121.240.152.4 10.7.0.7, 10.91.0.32';
+			document.forms[i].appendChild(myElement);
+		}
+	}
+});
+// --></script>
+		<link rel="stylesheet" href="http://disqus.com/stylesheets/arunchaganty/disqus.css?v=2.0" type="text/css" media="screen" /><style type="text/css" media="screen,projection">
+/*<![CDATA[*/
+/* CSS inserted by theme options */
+body{font-family:verdana, geneva, sans-serif;font-size:75%;}
+body div#wrapper{width:45em;}
+div#header,div.hentry .entry-title,div#content .page-title,div.entry-content h2,div.entry-content h3,div.entry-content h4,div.entry-content h5,div.entry-content h6{font-family:arial, helvetica, sans-serif;}
+div.hentry div.entry-content{text-align:left;}
+body div#primary{clear:both;float:left;}
+body div#secondary{float:right;}div.banner:hover div.access{display:block;}
+/*]]>*/
+</style>
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+
+</head>
+
+<body class="wordpress y2010 m09 d18 h04 home">
+
+<div class="banner">
+	<div id="globalnav"><ul id="menu"><li class="page_item_home home-link"><a href="http://arun.chagantys.org/blog/" title="arun.chaganty" rel="home">Home</a></li></ul></div>
+	<div class="access">
+		<span class="content-access"><a href="#content" title="Skip to content">Skip to content</a></span>
+		<span class="sidebar-access"><a href="#primary" title="Skip past content">Skip past content</a></span>
+	</div>
+</div><!-- .banner -->
+
+<div id="wrapper" class="hatom">
+
+    <div id="header" class="header">
+  <h1><a href="">arun.chaganty</a></h1>
+  <p><i>Overengineering since 1989</i></p>
+  <ul class="center-align">
+      <li><a href="/">about</a></li> &middot;
+      <li><a href="/blog/">blog</a></li> &middot;
+      <li><a href="/ideas/">ideas</a></li> &middot;
+      <li><a href="/projects/">projects</a></li> 
+  </ul>
+</div>
+
+	<!-- #header -->
+
+	<div id="container">
+		<div id="content">
+
+
+			<div id="post-293" class="hentry p1 post publish author-admin category-technical y2010 m04 d04 h12">
+				<h2 class="entry-title"><a href="http://arun.chagantys.org/blog/?p=293" title="Permalink to Dynamic Shortcut Creation with Bash" rel="bookmark">Dynamic Shortcut Creation with Bash</a></h2>
+				<div class="entry-date"><abbr class="published" title="2010-04-04T06:35:50+0000">Sunday, April 4th, 2010</abbr></div>
+				<div class="entry-content">
+<p>
+One of the things that used to get me really frustrated was having to type (and remember) really long paths to my organised data. If I have an assignment in some course of mine, I have to navigate to &#8220;~/Courses/code/cs6680/assn1/&#8221; before I get any work done. From what I hear, this is a pretty common crib that a lot of others also share. Here&#8217;s my solution (<a href="http://arun.chagantys.org/files/scripts/shortcut">download</a>).
+</p>
+<p><div class="codecolorer-container bash default" style="overflow:auto;white-space:nowrap;width:600px;height:300px;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br />19<br />20<br />21<br />22<br />23<br />24<br />25<br />26<br />27<br />28<br />29<br />30<br />31<br />32<br />33<br />34<br />35<br />36<br />37<br />38<br /></div></td><td><div class="bash codecolorer"><span class="co0">#!/bin/bash</span><br />
+<br />
+<span class="co0"># Shortcut Creation</span><br />
+<span class="re2">LINKDIR</span>=~<span class="sy0">/</span>.shells<span class="sy0">/</span>links<br />
+<br />
+<span class="kw1">if</span> <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="sy0">!</span> <span class="re5">-e</span> <span class="re1">$LINKDIR</span> <span class="br0">&#93;</span><span class="br0">&#93;</span>; <span class="kw1">then</span><br />
+&nbsp; &nbsp; <span class="kw2">mkdir</span> <span class="re5">-p</span> <span class="re1">$LINKDIR</span>;<br />
+<span class="kw1">fi</span><br />
+<br />
+<span class="kw1">if</span> <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="re4">$1</span> == <span class="st0">&quot;-c&quot;</span> <span class="sy0">&amp;&amp;</span> <span class="re4">$#</span> == <span class="nu0">3</span> <span class="br0">&#93;</span><span class="br0">&#93;</span>; <span class="kw1">then</span><br />
+&nbsp; &nbsp; <span class="re2">linkname</span>=<span class="re4">$2</span>;<br />
+&nbsp; &nbsp; <span class="re2">path</span>=<span class="re4">$3</span>;<br />
+&nbsp; &nbsp; <span class="co0"># Check if exists</span><br />
+&nbsp; &nbsp; <span class="kw3">echo</span> <span class="st0">&quot;<span class="es2">$path</span>&quot;</span> <span class="sy0">&gt;</span> <span class="st0">&quot;<span class="es2">$LINKDIR</span>/<span class="es2">$linkname</span>&quot;</span>;<br />
+&nbsp; &nbsp; <span class="kw3">echo</span> <span class="st0">&quot;Link: <span class="es2">$linkname</span> created&quot;</span>;<br />
+<span class="kw1">elif</span> <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="re4">$1</span> == <span class="st0">&quot;-r&quot;</span> <span class="sy0">&amp;&amp;</span> <span class="re4">$#</span> == <span class="nu0">2</span> <span class="br0">&#93;</span><span class="br0">&#93;</span>; <span class="kw1">then</span><br />
+&nbsp; &nbsp; <span class="re2">linkname</span>=<span class="re4">$2</span>;<br />
+&nbsp; &nbsp; <span class="co0"># Check if exists</span><br />
+&nbsp; &nbsp; <span class="kw2">rm</span> <span class="re5">-rf</span> <span class="st0">&quot;<span class="es2">$LINKDIR</span>/<span class="es2">$linkname</span>&quot;</span>;<br />
+&nbsp; &nbsp; <span class="kw3">echo</span> <span class="st0">&quot;Link: <span class="es2">$linkname</span> deleted&quot;</span>;<br />
+<span class="kw1">elif</span> <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="re4">$1</span> == <span class="st0">&quot;-l&quot;</span> <span class="sy0">&amp;&amp;</span> <span class="re4">$#</span> == <span class="nu0">1</span> <span class="br0">&#93;</span><span class="br0">&#93;</span>; <span class="kw1">then</span><br />
+&nbsp; &nbsp; <span class="kw1">for</span> <span class="kw2">link</span> <span class="kw1">in</span> <span class="re1">$LINKDIR</span><span class="sy0">/*</span>; <span class="kw1">do</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">echo</span> <span class="st0">&quot;<span class="es5">`basename $link`</span> -&gt; <span class="es5">`cat $link`</span>&quot;</span>;<br />
+&nbsp; &nbsp; <span class="kw1">done</span>;<br />
+<span class="kw1">elif</span> <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="re4">$#</span> == <span class="nu0">1</span> <span class="br0">&#93;</span><span class="br0">&#93;</span>; <span class="kw1">then</span><br />
+&nbsp; &nbsp; <span class="re2">linkname</span>=<span class="re4">$1</span>;<br />
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re5">-e</span> <span class="st0">&quot;<span class="es2">$LINKDIR</span>/<span class="es2">$linkname</span>&quot;</span> <span class="br0">&#93;</span>; <span class="kw1">then</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">cd</span> <span class="sy0">`</span><span class="kw2">cat</span> <span class="re1">$LINKDIR</span><span class="sy0">/</span><span class="re1">$linkname</span><span class="sy0">`</span>;<br />
+&nbsp; &nbsp; <span class="kw1">else</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">echo</span> <span class="st0">&quot;Link: <span class="es2">$linkname</span> does not exist&quot;</span>;<br />
+&nbsp; &nbsp; <span class="kw1">fi</span><br />
+<span class="kw1">else</span><br />
+&nbsp; &nbsp; <span class="kw3">echo</span> <span class="st0">&quot;Usage: $0 -c &lt;linkname&gt; &lt;path&gt;&quot;</span>;<br />
+&nbsp; &nbsp; <span class="kw3">echo</span> <span class="st0">&quot; &nbsp; &nbsp; &nbsp; $0 -r &lt;linkname&gt;&quot;</span>;<br />
+&nbsp; &nbsp; <span class="kw3">echo</span> <span class="st0">&quot; &nbsp; &nbsp; &nbsp; $0 -l&quot;</span>;<br />
+&nbsp; &nbsp; <span class="kw3">echo</span> <span class="st0">&quot; &nbsp; &nbsp; &nbsp; . $0 &lt;linkname&gt;&quot;</span>;<br />
+&nbsp; &nbsp; <span class="kw3">exit</span> <span class="nu0">1</span>;<br />
+<span class="kw1">fi</span></div></td></tr></tbody></table></div>
+</p>
+<p>
+Usage is pretty simple, but has one caveat &#8211; to go to a link, you have to <i>source the script file</i> (from what I gather, that&#8217;s the only way to change the current directory by the means of a script. I hope this useful.</p>
+<div class="codecolorer-container text default" style="overflow:auto;white-space:nowrap;width:600px;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br />5<br /></div></td><td><div class="text codecolorer">$&gt; shortcut -c &quot;dm3&quot; $PWD;<br />
+$&gt; shortcut -l;<br />
+&nbsp; &nbsp;dm3 -&gt; /home/teju/Courses/cs6720/assn3/ <br />
+$&gt; . shortcut &quot;dm3&quot;;<br />
+$&gt; shortcut -r &quot;dm3&quot;;</div></td></tr></tbody></table></div>
+</p>
+<p>
+A very brief explanation of the code &#8211; it creates a file for every link you create, and the file contains the path. Note it might be interesting to add more functionality to that file, like a set of scripts to run on entering the directory, or something like that.</p>
+
+				</div>
+				<div class="entry-meta">
+					<span class="entry-category">Filed in <a href="http://arun.chagantys.org/blog/?cat=7" title="View all posts in technical" rel="category">technical</a></span>
+					<span class="meta-sep">|</span>
+					<span class="entry-tags">Tagged <a href="http://arun.chagantys.org/blog/?tag=bash" rel="tag">bash</a>, <a href="http://arun.chagantys.org/blog/?tag=organisation" rel="tag">organisation</a>, <a href="http://arun.chagantys.org/blog/?tag=quickfix" rel="tag">quickfix</a>, <a href="http://arun.chagantys.org/blog/?tag=script" rel="tag">script</a></span>
+					<span class="meta-sep">|</span>
+					<span class="entry-permalink"><a href="http://arun.chagantys.org/blog/?p=293" title="Permalink to Dynamic Shortcut Creation with Bash">Permalink</a></span>
+					<span class="meta-sep">|</span>
+					<span class="entry-comments"><a href="http://arun.chagantys.org/blog/?p=293#comments" title="Comment on Dynamic Shortcut Creation with Bash"><span class="dsq-postid-293">View Comments</span></a></span>
+				</div>
+			</div><!-- .post -->
+
+
+			<div id="nav-below" class="navigation">
+				<div class="nav-previous"><a href="http://arun.chagantys.org/blog/?paged=2" >&lt; Older posts</a></div>
+				<div class="nav-next"></div>
+			</div>
+
+		</div><!-- #content .hfeed -->
+	</div><!-- #container -->
+
+	<div id="primary" class="sidebar">
+		<ul>
+		<li id="recent-comments-2" class="widget widget_recent_comments">			<h3 class='widgettitle'>Recent Comments</h3>
+			<ul id="recentcomments"><li class="recentcomments"><a href='http://www.usa-basketball-shoes.com/Chauncey-Billups-shoes.html' rel='external nofollow' class='url'>Chauncey Billups Shoes</a> on <a href="http://arun.chagantys.org/blog/?p=83&#038;cpage=1#comment-783">Nearest Prime Number Algorithm</a></li><li class="recentcomments"><a href='http://www.usa-basketball-shoes.com/Chauncey-Billups-shoes.html' rel='external nofollow' class='url'>Chauncey Billups Shoes</a> on <a href="http://arun.chagantys.org/blog/?p=29&#038;cpage=1#comment-784">I Am a GObject</a></li><li class="recentcomments">josef on <a href="http://arun.chagantys.org/blog/?p=287&#038;cpage=1#comment-782">Disqus and Ideas</a></li><li class="recentcomments"><a href='http://rudyrudy51@hotmail' rel='external nofollow' class='url'>riad.hatem</a> on <a href="http://arun.chagantys.org/blog/?p=287&#038;cpage=1#comment-781">Disqus and Ideas</a></li><li class="recentcomments">arunchaganty on <a href="http://arun.chagantys.org/blog/?p=293&#038;cpage=1#comment-780">Dynamic Shortcut Creation with Bash</a></li></ul>
+		</li>
+		<li id="recent-posts-2" class="widget widget_recent_entries">		<h3 class='widgettitle'>Recent Posts</h3>
+		<ul>
+				<li><a href="http://arun.chagantys.org/blog/?p=293" title="Dynamic Shortcut Creation with Bash">Dynamic Shortcut Creation with Bash </a></li>
+				<li><a href="http://arun.chagantys.org/blog/?p=287" title="Disqus and Ideas">Disqus and Ideas </a></li>
+				<li><a href="http://arun.chagantys.org/blog/?p=278" title="Not All Those Who Wander Are Lost&#8230; But Some Are">Not All Those Who Wander Are Lost&#8230; But Some Are </a></li>
+				<li><a href="http://arun.chagantys.org/blog/?p=275" title="Theme Change!">Theme Change! </a></li>
+				<li><a href="http://arun.chagantys.org/blog/?p=267" title="foss.in/2009">foss.in/2009 </a></li>
+				</ul>
+		</li>
+<li id="calendar-2" class="widget widget_calendar"><h3 class='widgettitle'>&nbsp;</h3>
+<div id="calendar_wrap"><table id="wp-calendar" summary="Calendar">
+	<caption>September 2010</caption>
+	<thead>
+	<tr>
+		<th abbr="Monday" scope="col" title="Monday">M</th>
+		<th abbr="Tuesday" scope="col" title="Tuesday">T</th>
+		<th abbr="Wednesday" scope="col" title="Wednesday">W</th>
+		<th abbr="Thursday" scope="col" title="Thursday">T</th>
+		<th abbr="Friday" scope="col" title="Friday">F</th>
+		<th abbr="Saturday" scope="col" title="Saturday">S</th>
+		<th abbr="Sunday" scope="col" title="Sunday">S</th>
+	</tr>
+	</thead>
+
+	<tfoot>
+	<tr>
+		<td abbr="April" colspan="3" id="prev"><a href="http://arun.chagantys.org/blog/?m=201004" title="View posts for April 2010">&laquo; Apr</a></td>
+		<td class="pad">&nbsp;</td>
+		<td colspan="3" id="next" class="pad">&nbsp;</td>
+	</tr>
+	</tfoot>
+
+	<tbody>
+	<tr>
+		<td colspan="2" class="pad">&nbsp;</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+	</tr>
+	<tr>
+		<td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td>
+	</tr>
+	<tr>
+		<td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td id="today">18</td><td>19</td>
+	</tr>
+	<tr>
+		<td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
+	</tr>
+	<tr>
+		<td>27</td><td>28</td><td>29</td><td>30</td>
+		<td class="pad" colspan="3">&nbsp;</td>
+	</tr>
+	</tbody>
+	</table></div></li>
+<li id="tag_cloud-2" class="widget widget_tag_cloud"><h3 class='widgettitle'>Tags</h3>
+<div><a href='http://arun.chagantys.org/blog/?tag=algorithms' class='tag-link-9' title='2 topics' style='font-size: 11.405405405405pt;'>algorithms</a>
+<a href='http://arun.chagantys.org/blog/?tag=anjuta' class='tag-link-10' title='4 topics' style='font-size: 15.567567567568pt;'>anjuta</a>
+<a href='http://arun.chagantys.org/blog/?tag=code' class='tag-link-11' title='2 topics' style='font-size: 11.405405405405pt;'>code</a>
+<a href='http://arun.chagantys.org/blog/?tag=coffee' class='tag-link-12' title='1 topic' style='font-size: 8pt;'>coffee</a>
+<a href='http://arun.chagantys.org/blog/?tag=config' class='tag-link-51' title='1 topic' style='font-size: 8pt;'>config</a>
+<a href='http://arun.chagantys.org/blog/?tag=dbus' class='tag-link-13' title='1 topic' style='font-size: 8pt;'>dbus</a>
+<a href='http://arun.chagantys.org/blog/?tag=delhi' class='tag-link-14' title='1 topic' style='font-size: 8pt;'>delhi</a>
+<a href='http://arun.chagantys.org/blog/?tag=django' class='tag-link-15' title='1 topic' style='font-size: 8pt;'>django</a>
+<a href='http://arun.chagantys.org/blog/?tag=foss' class='tag-link-16' title='3 topics' style='font-size: 13.675675675676pt;'>foss</a>
+<a href='http://arun.chagantys.org/blog/?tag=freedom' class='tag-link-17' title='1 topic' style='font-size: 8pt;'>freedom</a>
+<a href='http://arun.chagantys.org/blog/?tag=games' class='tag-link-18' title='1 topic' style='font-size: 8pt;'>games</a>
+<a href='http://arun.chagantys.org/blog/?tag=glade' class='tag-link-20' title='1 topic' style='font-size: 8pt;'>glade</a>
+<a href='http://arun.chagantys.org/blog/?tag=glib' class='tag-link-21' title='1 topic' style='font-size: 8pt;'>glib</a>
+<a href='http://arun.chagantys.org/blog/?tag=gnome' class='tag-link-22' title='3 topics' style='font-size: 13.675675675676pt;'>gnome</a>
+<a href='http://arun.chagantys.org/blog/?tag=gobject' class='tag-link-23' title='1 topic' style='font-size: 8pt;'>gobject</a>
+<a href='http://arun.chagantys.org/blog/?tag=graphs' class='tag-link-24' title='1 topic' style='font-size: 8pt;'>graphs</a>
+<a href='http://arun.chagantys.org/blog/?tag=gsoc-technical' class='tag-link-8' title='10 topics' style='font-size: 22pt;'>gsoc</a>
+<a href='http://arun.chagantys.org/blog/?tag=gvim' class='tag-link-25' title='1 topic' style='font-size: 8pt;'>gvim</a>
+<a href='http://arun.chagantys.org/blog/?tag=hackathon' class='tag-link-26' title='1 topic' style='font-size: 8pt;'>hackathon</a>
+<a href='http://arun.chagantys.org/blog/?tag=hacking' class='tag-link-27' title='1 topic' style='font-size: 8pt;'>hacking</a>
+<a href='http://arun.chagantys.org/blog/?tag=insight' class='tag-link-47' title='1 topic' style='font-size: 8pt;'>insight</a>
+<a href='http://arun.chagantys.org/blog/?tag=introspection' class='tag-link-67' title='3 topics' style='font-size: 13.675675675676pt;'>introspection</a>
+<a href='http://arun.chagantys.org/blog/?tag=lug' class='tag-link-28' title='2 topics' style='font-size: 11.405405405405pt;'>lug</a>
+<a href='http://arun.chagantys.org/blog/?tag=maintainence' class='tag-link-48' title='1 topic' style='font-size: 8pt;'>maintainence</a>
+<a href='http://arun.chagantys.org/blog/?tag=meetup' class='tag-link-29' title='1 topic' style='font-size: 8pt;'>meetup</a>
+<a href='http://arun.chagantys.org/blog/?tag=meme' class='tag-link-68' title='2 topics' style='font-size: 11.405405405405pt;'>meme</a>
+<a href='http://arun.chagantys.org/blog/?tag=night' class='tag-link-30' title='1 topic' style='font-size: 8pt;'>night</a>
+<a href='http://arun.chagantys.org/blog/?tag=plugin' class='tag-link-50' title='1 topic' style='font-size: 8pt;'>plugin</a>
+<a href='http://arun.chagantys.org/blog/?tag=poetry' class='tag-link-6' title='5 topics' style='font-size: 17.081081081081pt;'>poetry</a>
+<a href='http://arun.chagantys.org/blog/?tag=programming' class='tag-link-95' title='2 topics' style='font-size: 11.405405405405pt;'>programming</a>
+<a href='http://arun.chagantys.org/blog/?tag=python' class='tag-link-32' title='2 topics' style='font-size: 11.405405405405pt;'>python</a>
+<a href='http://arun.chagantys.org/blog/?tag=random' class='tag-link-33' title='4 topics' style='font-size: 15.567567567568pt;'>random</a>
+<a href='http://arun.chagantys.org/blog/?tag=rant' class='tag-link-34' title='3 topics' style='font-size: 13.675675675676pt;'>rant</a>
+<a href='http://arun.chagantys.org/blog/?tag=screencast' class='tag-link-36' title='1 topic' style='font-size: 8pt;'>screencast</a>
+<a href='http://arun.chagantys.org/blog/?tag=screenshot' class='tag-link-53' title='1 topic' style='font-size: 8pt;'>screenshot</a>
+<a href='http://arun.chagantys.org/blog/?tag=shaastra' class='tag-link-37' title='6 topics' style='font-size: 18.405405405405pt;'>shaastra</a>
+<a href='http://arun.chagantys.org/blog/?tag=social-experiment' class='tag-link-46' title='1 topic' style='font-size: 8pt;'>social experiment</a>
+<a href='http://arun.chagantys.org/blog/?tag=story' class='tag-link-38' title='3 topics' style='font-size: 13.675675675676pt;'>story</a>
+<a href='http://arun.chagantys.org/blog/?tag=tapplet' class='tag-link-39' title='1 topic' style='font-size: 8pt;'>tapplet</a>
+<a href='http://arun.chagantys.org/blog/?tag=technical' class='tag-link-7' title='2 topics' style='font-size: 11.405405405405pt;'>technical</a>
+<a href='http://arun.chagantys.org/blog/?tag=tomboy' class='tag-link-49' title='1 topic' style='font-size: 8pt;'>tomboy</a>
+<a href='http://arun.chagantys.org/blog/?tag=travel' class='tag-link-40' title='2 topics' style='font-size: 11.405405405405pt;'>travel</a>
+<a href='http://arun.chagantys.org/blog/?tag=vim' class='tag-link-41' title='5 topics' style='font-size: 17.081081081081pt;'>vim</a>
+<a href='http://arun.chagantys.org/blog/?tag=vimjuta' class='tag-link-42' title='4 topics' style='font-size: 15.567567567568pt;'>vimjuta</a>
+<a href='http://arun.chagantys.org/blog/?tag=vimrc' class='tag-link-52' title='1 topic' style='font-size: 8pt;'>vimrc</a></div>
+</li>
+<li id="categories-299368871" class="widget widget_categories"><h3 class='widgettitle'>Categories</h3>
+		<ul>
+	<li class="cat-item cat-item-3"><a href="http://arun.chagantys.org/blog/?cat=3" title="View all posts filed under general">general</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="http://arun.chagantys.org/blog/?cat=8" title="View all posts filed under gsoc">gsoc</a>
+</li>
+	<li class="cat-item cat-item-100"><a href="http://arun.chagantys.org/blog/?cat=100" title="View all posts filed under news">news</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://arun.chagantys.org/blog/?cat=6" title="View all posts filed under poetry">poetry</a>
+</li>
+	<li class="cat-item cat-item-61"><a href="http://arun.chagantys.org/blog/?cat=61" title="View all posts filed under prose">prose</a>
+</li>
+	<li class="cat-item cat-item-46"><a href="http://arun.chagantys.org/blog/?cat=46" title="View all posts filed under social experiment">social experiment</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://arun.chagantys.org/blog/?cat=7" title="View all posts filed under technical">technical</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://arun.chagantys.org/blog/?cat=1" title="View all posts filed under Uncategorized">Uncategorized</a>
+</li>
+		</ul>
+</li>
+
+		</ul>
+	</div><!-- #primary .sidebar -->
+
+	<div id="secondary" class="sidebar">
+		<ul>
+			<li id="search">
+				<h3><label for="s">Search</label></h3>
+				<form id="searchform" method="get" action="http://arun.chagantys.org/blog">
+					<div>
+						<input id="s" name="s" type="text" value="" size="10" />
+						<input id="searchsubmit" name="searchsubmit" type="submit" value="Find" />
+					</div>
+				</form>
+			</li>
+			<li id="categories">
+				<h3>Categories</h3>
+				<ul>
+	<li class="cat-item cat-item-3"><a href="http://arun.chagantys.org/blog/?cat=3" title="View all posts filed under general">general</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="http://arun.chagantys.org/blog/?cat=8" title="View all posts filed under gsoc">gsoc</a>
+</li>
+	<li class="cat-item cat-item-100"><a href="http://arun.chagantys.org/blog/?cat=100" title="View all posts filed under news">news</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://arun.chagantys.org/blog/?cat=6" title="View all posts filed under poetry">poetry</a>
+</li>
+	<li class="cat-item cat-item-61"><a href="http://arun.chagantys.org/blog/?cat=61" title="View all posts filed under prose">prose</a>
+</li>
+	<li class="cat-item cat-item-46"><a href="http://arun.chagantys.org/blog/?cat=46" title="View all posts filed under social experiment">social experiment</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://arun.chagantys.org/blog/?cat=7" title="View all posts filed under technical">technical</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://arun.chagantys.org/blog/?cat=1" title="View all posts filed under Uncategorized">Uncategorized</a>
+</li>
+
+				</ul>
+			</li>
+			<li id="tag-cloud">
+				<h3>Tags</h3>
+				<p><a href='http://arun.chagantys.org/blog/?tag=algorithms' class='tag-link-9' title='2 topics' style='font-size: 11.405405405405pt;'>algorithms</a>
+<a href='http://arun.chagantys.org/blog/?tag=anjuta' class='tag-link-10' title='4 topics' style='font-size: 15.567567567568pt;'>anjuta</a>
+<a href='http://arun.chagantys.org/blog/?tag=code' class='tag-link-11' title='2 topics' style='font-size: 11.405405405405pt;'>code</a>
+<a href='http://arun.chagantys.org/blog/?tag=coffee' class='tag-link-12' title='1 topic' style='font-size: 8pt;'>coffee</a>
+<a href='http://arun.chagantys.org/blog/?tag=config' class='tag-link-51' title='1 topic' style='font-size: 8pt;'>config</a>
+<a href='http://arun.chagantys.org/blog/?tag=dbus' class='tag-link-13' title='1 topic' style='font-size: 8pt;'>dbus</a>
+<a href='http://arun.chagantys.org/blog/?tag=delhi' class='tag-link-14' title='1 topic' style='font-size: 8pt;'>delhi</a>
+<a href='http://arun.chagantys.org/blog/?tag=django' class='tag-link-15' title='1 topic' style='font-size: 8pt;'>django</a>
+<a href='http://arun.chagantys.org/blog/?tag=foss' class='tag-link-16' title='3 topics' style='font-size: 13.675675675676pt;'>foss</a>
+<a href='http://arun.chagantys.org/blog/?tag=freedom' class='tag-link-17' title='1 topic' style='font-size: 8pt;'>freedom</a>
+<a href='http://arun.chagantys.org/blog/?tag=games' class='tag-link-18' title='1 topic' style='font-size: 8pt;'>games</a>
+<a href='http://arun.chagantys.org/blog/?tag=glade' class='tag-link-20' title='1 topic' style='font-size: 8pt;'>glade</a>
+<a href='http://arun.chagantys.org/blog/?tag=glib' class='tag-link-21' title='1 topic' style='font-size: 8pt;'>glib</a>
+<a href='http://arun.chagantys.org/blog/?tag=gnome' class='tag-link-22' title='3 topics' style='font-size: 13.675675675676pt;'>gnome</a>
+<a href='http://arun.chagantys.org/blog/?tag=gobject' class='tag-link-23' title='1 topic' style='font-size: 8pt;'>gobject</a>
+<a href='http://arun.chagantys.org/blog/?tag=graphs' class='tag-link-24' title='1 topic' style='font-size: 8pt;'>graphs</a>
+<a href='http://arun.chagantys.org/blog/?tag=gsoc-technical' class='tag-link-8' title='10 topics' style='font-size: 22pt;'>gsoc</a>
+<a href='http://arun.chagantys.org/blog/?tag=gvim' class='tag-link-25' title='1 topic' style='font-size: 8pt;'>gvim</a>
+<a href='http://arun.chagantys.org/blog/?tag=hackathon' class='tag-link-26' title='1 topic' style='font-size: 8pt;'>hackathon</a>
+<a href='http://arun.chagantys.org/blog/?tag=hacking' class='tag-link-27' title='1 topic' style='font-size: 8pt;'>hacking</a>
+<a href='http://arun.chagantys.org/blog/?tag=insight' class='tag-link-47' title='1 topic' style='font-size: 8pt;'>insight</a>
+<a href='http://arun.chagantys.org/blog/?tag=introspection' class='tag-link-67' title='3 topics' style='font-size: 13.675675675676pt;'>introspection</a>
+<a href='http://arun.chagantys.org/blog/?tag=lug' class='tag-link-28' title='2 topics' style='font-size: 11.405405405405pt;'>lug</a>
+<a href='http://arun.chagantys.org/blog/?tag=maintainence' class='tag-link-48' title='1 topic' style='font-size: 8pt;'>maintainence</a>
+<a href='http://arun.chagantys.org/blog/?tag=meetup' class='tag-link-29' title='1 topic' style='font-size: 8pt;'>meetup</a>
+<a href='http://arun.chagantys.org/blog/?tag=meme' class='tag-link-68' title='2 topics' style='font-size: 11.405405405405pt;'>meme</a>
+<a href='http://arun.chagantys.org/blog/?tag=night' class='tag-link-30' title='1 topic' style='font-size: 8pt;'>night</a>
+<a href='http://arun.chagantys.org/blog/?tag=plugin' class='tag-link-50' title='1 topic' style='font-size: 8pt;'>plugin</a>
+<a href='http://arun.chagantys.org/blog/?tag=poetry' class='tag-link-6' title='5 topics' style='font-size: 17.081081081081pt;'>poetry</a>
+<a href='http://arun.chagantys.org/blog/?tag=programming' class='tag-link-95' title='2 topics' style='font-size: 11.405405405405pt;'>programming</a>
+<a href='http://arun.chagantys.org/blog/?tag=python' class='tag-link-32' title='2 topics' style='font-size: 11.405405405405pt;'>python</a>
+<a href='http://arun.chagantys.org/blog/?tag=random' class='tag-link-33' title='4 topics' style='font-size: 15.567567567568pt;'>random</a>
+<a href='http://arun.chagantys.org/blog/?tag=rant' class='tag-link-34' title='3 topics' style='font-size: 13.675675675676pt;'>rant</a>
+<a href='http://arun.chagantys.org/blog/?tag=screencast' class='tag-link-36' title='1 topic' style='font-size: 8pt;'>screencast</a>
+<a href='http://arun.chagantys.org/blog/?tag=screenshot' class='tag-link-53' title='1 topic' style='font-size: 8pt;'>screenshot</a>
+<a href='http://arun.chagantys.org/blog/?tag=shaastra' class='tag-link-37' title='6 topics' style='font-size: 18.405405405405pt;'>shaastra</a>
+<a href='http://arun.chagantys.org/blog/?tag=social-experiment' class='tag-link-46' title='1 topic' style='font-size: 8pt;'>social experiment</a>
+<a href='http://arun.chagantys.org/blog/?tag=story' class='tag-link-38' title='3 topics' style='font-size: 13.675675675676pt;'>story</a>
+<a href='http://arun.chagantys.org/blog/?tag=tapplet' class='tag-link-39' title='1 topic' style='font-size: 8pt;'>tapplet</a>
+<a href='http://arun.chagantys.org/blog/?tag=technical' class='tag-link-7' title='2 topics' style='font-size: 11.405405405405pt;'>technical</a>
+<a href='http://arun.chagantys.org/blog/?tag=tomboy' class='tag-link-49' title='1 topic' style='font-size: 8pt;'>tomboy</a>
+<a href='http://arun.chagantys.org/blog/?tag=travel' class='tag-link-40' title='2 topics' style='font-size: 11.405405405405pt;'>travel</a>
+<a href='http://arun.chagantys.org/blog/?tag=vim' class='tag-link-41' title='5 topics' style='font-size: 17.081081081081pt;'>vim</a>
+<a href='http://arun.chagantys.org/blog/?tag=vimjuta' class='tag-link-42' title='4 topics' style='font-size: 15.567567567568pt;'>vimjuta</a>
+<a href='http://arun.chagantys.org/blog/?tag=vimrc' class='tag-link-52' title='1 topic' style='font-size: 8pt;'>vimrc</a></p>
+			</li>
+			<li id="archives">
+				<h3>Archives</h3>
+				<ul>
+	<li><a href='http://arun.chagantys.org/blog/?m=201004' title='April 2010'>April 2010</a></li>
+	<li><a href='http://arun.chagantys.org/blog/?m=201003' title='March 2010'>March 2010</a></li>
+	<li><a href='http://arun.chagantys.org/blog/?m=200912' title='December 2009'>December 2009</a></li>
+	<li><a href='http://arun.chagantys.org/blog/?m=200911' title='November 2009'>November 2009</a></li>
+	<li><a href='http://arun.chagantys.org/blog/?m=200910' title='October 2009'>October 2009</a></li>
+	<li><a href='http://arun.chagantys.org/blog/?m=200909' title='September 2009'>September 2009</a></li>
+	<li><a href='http://arun.chagantys.org/blog/?m=200908' title='August 2009'>August 2009</a></li>
+	<li><a href='http://arun.chagantys.org/blog/?m=200907' title='July 2009'>July 2009</a></li>
+	<li><a href='http://arun.chagantys.org/blog/?m=200906' title='June 2009'>June 2009</a></li>
+	<li><a href='http://arun.chagantys.org/blog/?m=200905' title='May 2009'>May 2009</a></li>
+	<li><a href='http://arun.chagantys.org/blog/?m=200904' title='April 2009'>April 2009</a></li>
+	<li><a href='http://arun.chagantys.org/blog/?m=200901' title='January 2009'>January 2009</a></li>
+	<li><a href='http://arun.chagantys.org/blog/?m=200812' title='December 2008'>December 2008</a></li>
+	<li><a href='http://arun.chagantys.org/blog/?m=200811' title='November 2008'>November 2008</a></li>
+	<li><a href='http://arun.chagantys.org/blog/?m=200810' title='October 2008'>October 2008</a></li>
+	<li><a href='http://arun.chagantys.org/blog/?m=200809' title='September 2008'>September 2008</a></li>
+	<li><a href='http://arun.chagantys.org/blog/?m=200808' title='August 2008'>August 2008</a></li>
+	<li><a href='http://arun.chagantys.org/blog/?m=200807' title='July 2008'>July 2008</a></li>
+	<li><a href='http://arun.chagantys.org/blog/?m=200806' title='June 2008'>June 2008</a></li>
+	<li><a href='http://arun.chagantys.org/blog/?m=200805' title='May 2008'>May 2008</a></li>
+	<li><a href='http://arun.chagantys.org/blog/?m=200804' title='April 2008'>April 2008</a></li>
+	<li><a href='http://arun.chagantys.org/blog/?m=200803' title='March 2008'>March 2008</a></li>
+
+				</ul>
+			</li>
+			<li id="simplr-rss-links">
+				<h3>RSS Feeds</h3>
+				<ul>
+					<li><a href="http://arun.chagantys.org/blog/?feed=rss2" title="arun.chaganty RSS 2.0 Feed" rel="alternate" type="application/rss+xml">All posts</a></li>
+					<li><a href="http://arunchaganty.disqus.com/latest.rss" title="arun.chaganty Comments RSS 2.0 Feed" rel="alternate" type="application/rss+xml">All comments</a></li>
+				</ul>
+			</li>
+						<li id="meta">
+				<h3>Meta</h3>
+				<ul>
+										<li><a href="http://arun.chagantys.org/blog/wp-login.php">Log in</a></li>
+									</ul>
+			</li>
+			
+		</ul>
+	</div><!-- #primary .sidebar -->
+	<div id="footer">
+		<span id="copyright" class="footer-meta">&copy; 2010 <span class="vcard"><a class="url fn n" href="http://arun.chagantys.org"><span class="given-name">Arun Tejasvi</span> <span class="family-name">Chaganty</span></a></span></span>
+		<span id="generator-link" class="footer-meta">A <a href="http://wordpress.org/" title="WordPress">WordPress</a> Blog</span>
+		<span id="theme-link" class="footer-meta"><a href="http://www.plaintxt.org/themes/simplr/" title="Simplr theme for WordPress" rel="follow designer">Simplr</a> theme by <span class="vcard"><a class="url fn n" href="http://scottwallick.com/" title="scottwallick.com" rel="follow designer"><span class="given-name">Scott</span><span class="additional-name"> Allan</span><span class="family-name"> Wallick</span></a></span></span>
+		<br/>
+		<span id="web-standards" class="footer-meta">Valid <a href="http://validator.w3.org/check/referer" title="Valid XHTML">XHTML</a> &amp; <a href="http://jigsaw.w3.org/css-validator/validator?profile=css2&amp;warning=2&amp;uri=http://arun.chagantys.org/blog/wp-content/themes/simplr-mod/style.css" title="Valid CSS">CSS</a></span>
+		<span id="footer-rss" class="footer-meta">RSS: <a href="http://arun.chagantys.org/blog/?feed=rss2" title="arun.chaganty RSS Feed" rel="alternate" type="application/rss+xml">Posts</a> &amp; <a href="http://arunchaganty.disqus.com/latest.rss" title="arun.chaganty Comments RSS Feed" rel="alternate" type="application/rss+xml">Comments</a></span>
+	</div><!-- #footer -->
+
+<p><a href="http://www.bad-behavior.ioerror.us/">Bad Behavior</a> has blocked <strong>136</strong> access attempts in the last 7 days.</p>	<script type="text/javascript">
+	// <![CDATA[
+		(function() {
+			var nodes = document.getElementsByTagName('span');
+			var query = '&';
+			for (var i = 0; i < nodes.length; i++) {
+				if (nodes[i].className.indexOf('dsq-postid') != -1) {
+					query += 'wpid' + i + '=' + encodeURIComponent(nodes[i].className.replace('dsq-postid-', '')) + '&';
+				}
+			}
+			document.write('<script charset="utf-8" type="text/javascript" src="http://arunchaganty.disqus.com/get_num_replies_from_wpid.js?v=2.2&amp;t=span' + query + '"><' + '/script>');
+
+		})();
+	//]]>
+	</script>
+<script src="http://stats.wordpress.com/e-201037.js" type="text/javascript"></script>
+<script type="text/javascript">
+st_go({blog:'9954730',v:'ext',post:'0'});
+var load_cmc = function(){linktracker_init(9954730,0,2);};
+if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+else load_cmc();
+</script>
+	
+</div><!-- #wrapper -->
+
+</body><!-- end transmission -->
+</html>
